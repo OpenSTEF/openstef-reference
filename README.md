@@ -28,17 +28,29 @@ To start using the **openstf** reference stack use Docker Compose to bring up th
 $ sudo docker-compose up
 ```
 
-## PhpMyAdmin
-
-Open on https://localhost:8080
-Log in using username `root` and password `root`
-
 ## Grafana
 
-Open on https://localhost:3000
+Open on http://localhost:3000
 Log in using username `admin` and password `admin`
 
+## PhpMyAdmin
+
+Open on http://localhost:8080
+Log in using username `root` and password `root`
+
+## Nginx
+
+Open on http://localhost:8090
+
 # Tips and tricks
+
+## Enter running container
+
+To enter the InfluxDB container run:
+
+```shell
+$ sudo docker exec -it openstf-influxdb /bin/bash
+```
 
 ## Clear the volumes
 
