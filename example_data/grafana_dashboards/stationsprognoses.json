@@ -30,7 +30,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 48,
-  "iteration": 1622634125408,
+  "iteration": 1622641261834,
   "links": [],
   "panels": [
     {
@@ -2297,9 +2297,9 @@
       {
         "allValue": null,
         "current": {
-          "selected": false,
-          "text": "Oosterwolde",
-          "value": "Oosterwolde"
+          "selected": true,
+          "text": "Location_B",
+          "value": "Location_B"
         },
         "datasource": "mysql prd k8s",
         "definition": "SELECT p.name from predictions p where p.active=1 and model='xgb'",
@@ -2326,8 +2326,8 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "321",
-          "value": "321"
+          "text": "317",
+          "value": "317"
         },
         "datasource": "mysql prd k8s",
         "definition": "SELECT id from predictions where name in ('$Prediction_name')",
@@ -2552,8 +2552,8 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "6.292133563905651",
-          "value": "6.292133563905651"
+          "text": "5.4768915",
+          "value": "5.4768915"
         },
         "datasource": "mysql prd k8s",
         "definition": "SELECT max(lon) as lon FROM systems WHERE sid IN ($Systems)",
@@ -2580,8 +2580,8 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "53.001968700000006",
-          "value": "53.001968700000006"
+          "text": "52.5150949",
+          "value": "52.5150949"
         },
         "datasource": "mysql prd k8s",
         "definition": "SELECT max(lat) FROM systems WHERE sid IN ($Systems)",
