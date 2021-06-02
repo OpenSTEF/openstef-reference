@@ -3,11 +3,25 @@ INSERT INTO `customers` (`id`, `name`, `vip`, `active`) VALUES
 (312, 'Location_B', b'1', b'1'),
 (307, 'Location_C', b'1', b'1');
 
-INSERT INTO `customers_predictions` (`customer_id`, `prediction_id`) VALUES
-(316, 321),
-(312, 317),
-(312, 459),
-(307, 313);
+INSERT INTO `customersApiKeys` (`id`, `cid`, `name`, `apiKey`) VALUES
+(103, 316, 'Location_A', 'uuid-Location_A'),
+(99, 312, 'Location_B', 'uuid-Location_B'),
+(94, 307, 'Location_C', 'uuid-Location_C');
+
+INSERT INTO `systems` (`sid`, `origin`, `lat`, `lon`, `region`, `timezone`, `brand`, `freq`, `qual`, `lag`, `created`, `autoupdate`, `polarity`, `measurements_customer_api_key_id`) VALUES
+('Location_C_System_1', 'ems', 52.6, 5.3, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, -1, 199),
+('Location_C_System_2', 'ems', 52.6, 5.3, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, -1, 199),
+('Location_A_System_1', 'ems', 52.6, 5.6, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:07', 1, 1, 199),
+('Location_A_System_2', 'ems', 52.6, 5.6, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, 1, 199),
+('Location_B_System_1', 'ems', 53.1, 6.4, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, -1, 199),
+('Location_B_System_2', 'ems', 53.1, 6.4, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:12', 1, -1, 199);
+
+INSERT INTO `predictions` (`id`, `name`, `typ`, `model`, `created`, `active`, `horizon_minutes`, `resolution_minutes`, `train_components`, `ean`) VALUES
+(459, 'Location_A', 'demand', 'xgb_quantile', '2019-05-16 14:55:34', 1, 2880, 15, b'1', '000000000000000002'),
+(321, 'Location_B', 'demand', 'xgb', '2019-05-16 14:56:15', 1, 2880, 15, b'1', '000000000000000001'),
+(317, 'Location_A', 'demand', 'xgb', '2019-05-16 14:55:34', 1, 2880, 15, b'1', '000000000000000002'),
+(313, 'Location_C', 'demand', 'xgb', '2019-05-16 14:53:38', 1, 2880, 15, b'1', '000000000000000003');
+
 
 INSERT INTO `energy_split_coefs` (`id`, `pid`, `date_start`, `date_end`, `created`, `coef_name`, `coef_value`) VALUES
 (1136774, 317, '2020-12-22', '2021-03-22', '2021-03-22 10:35:03', 'MAE', 5.43466),
@@ -103,7 +117,30 @@ INSERT INTO `genericpowercurves` (`name`, `cut_in`, `cut_off`, `kind`, `manufact
 ('Vestas V112', 3, 25, 'onshore', 'Vestas', 3115990, 3000000, 8.15, 0.807),
 ('Vestas V90', 3, 25, 'onshore', 'Vestas', 2031320, 2000000, 8.29, 0.667);
 
----
+
+INSERT INTO `hyper_params` (`id`, `name`, `model`) VALUES
+(1, 'subsample', 'xgb'),
+(2, 'min_child_weight', 'xgb'),
+(3, 'max_depth', 'xgb'),
+(4, 'gamma', 'xgb'),
+(5, 'colsample_bytree', 'xgb'),
+(6, 'silent', 'xgb'),
+(7, 'objective', 'xgb'),
+(8, 'eta', 'xgb'),
+(9, 'featureset_name', 'xgb'),
+(10, 'training_period_days', 'xgb'),
+(11, 'subsample', 'xgb_quantile'),
+(12, 'min_child_weight', 'xgb_quantile'),
+(13, 'max_depth', 'xgb_quantile'),
+(14, 'gamma', 'xgb_quantile'),
+(15, 'colsample_bytree', 'xgb_quantile'),
+(16, 'silent', 'xgb_quantile'),
+(17, 'objective', 'xgb_quantile'),
+(18, 'eta', 'xgb_quantile'),
+(19, 'featureset_name', 'xgb_quantile'),
+(20, 'training_period_days', 'xgb_quantile');
+
+
 
 INSERT INTO `hyper_param_values` (`id`, `prediction_id`, `hyper_params_id`, `value`, `created`) VALUES
 (6447, 313, 10, '120', '2021-04-30 13:04:00'),
@@ -130,31 +167,6 @@ INSERT INTO `hyper_param_values` (`id`, `prediction_id`, `hyper_params_id`, `val
 (159, 313, 1, '0.9110858946357699', '2021-04-30 13:04:00'),
 (215, 321, 1, '0.7517060380641509', '2021-04-30 07:49:00'),
 (187, 317, 1, '0.9907384039640708', '2021-05-28 10:42:00');
-
--
-
-INSERT INTO `hyper_params` (`id`, `name`, `model`) VALUES
-(1, 'subsample', 'xgb'),
-(2, 'min_child_weight', 'xgb'),
-(3, 'max_depth', 'xgb'),
-(4, 'gamma', 'xgb'),
-(5, 'colsample_bytree', 'xgb'),
-(6, 'silent', 'xgb'),
-(7, 'objective', 'xgb'),
-(8, 'eta', 'xgb'),
-(9, 'featureset_name', 'xgb'),
-(10, 'training_period_days', 'xgb'),
-(11, 'subsample', 'xgb_quantile'),
-(12, 'min_child_weight', 'xgb_quantile'),
-(13, 'max_depth', 'xgb_quantile'),
-(14, 'gamma', 'xgb_quantile'),
-(15, 'colsample_bytree', 'xgb_quantile'),
-(16, 'silent', 'xgb_quantile'),
-(17, 'objective', 'xgb_quantile'),
-(18, 'eta', 'xgb_quantile'),
-(19, 'featureset_name', 'xgb_quantile'),
-(20, 'training_period_days', 'xgb_quantile');
-
 
 
 INSERT INTO `NameToLatLon` (`regionInput`, `lon`, `lat`) VALUES
@@ -253,11 +265,12 @@ INSERT INTO `NameToLatLon` (`regionInput`, `lon`, `lat`) VALUES
 ('Wervershoof', '5.139', '52.738'),
 ('Hoofddorp', '4.675', '52.301');
 
-INSERT INTO `predictions` (`id`, `name`, `typ`, `model`, `created`, `active`, `horizon_minutes`, `resolution_minutes`, `train_components`, `ean`) VALUES
-(459, 'Location_A', 'demand', 'xgb_quantile', '2019-05-16 14:55:34', 1, 2880, 15, b'1', '000000000000000002'),
-(321, 'Location_B', 'demand', 'xgb', '2019-05-16 14:56:15', 1, 2880, 15, b'1', '000000000000000001'),
-(317, 'Location_A', 'demand', 'xgb', '2019-05-16 14:55:34', 1, 2880, 15, b'1', '000000000000000002'),
-(313, 'Location_C', 'demand', 'xgb', '2019-05-16 14:53:38', 1, 2880, 15, b'1', '000000000000000003');
+
+INSERT INTO `customers_predictions` (`customer_id`, `prediction_id`) VALUES
+(316, 321),
+(312, 317),
+(312, 459),
+(307, 313);
 
 INSERT INTO `predictions_quantile_sets` (`id`, `prediction_id`, `quantile_set_id`) VALUES
 (140, 459, 1),
@@ -276,12 +289,3 @@ INSERT INTO `predictions_systems` (`prediction_id`, `system_id`) VALUES
 (313, 'Location_C_System_2');
 
 
-INSERT INTO `systems` (`sid`, `origin`, `lat`, `lon`, `region`, `timezone`, `brand`, `freq`, `qual`, `lag`, `created`, `autoupdate`, `polarity`, `measurements_customer_api_key_id`) VALUES
-('Location_C_System_1', 'ems', 52.6, 5.3, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, -1, 199),
-('Location_C_System_2', 'ems', 52.6, 5.3, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, -1, 199),
-('Location_A_System_1', 'ems', 52.6, 5.6, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:07', 1, 1, 199),
-('Location_A_System_2', 'ems', 52.6, 5.6, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, 1, 199),
-('Location_B_System_1', 'ems', 53.1, 6.4, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, -1, 199),
-('Location_B_System_2', 'ems', 53.1, 6.4, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:12', 1, -1, 199);
-
--
