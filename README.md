@@ -1,3 +1,4 @@
+
 # openstf-reference
 
 Reference implementation of the **openstf** stack.
@@ -36,3 +37,13 @@ Log in using username `root` and password `root`
 
 Open on https://localhost:3000
 Log in using username `admin` and password `admin`
+
+# Tips and tricks
+
+## Clear the volumes
+
+Docker will try using previous volumes on runs. But sometimes you want to start fresh. Docker-compose offers the `--renew-anon-volumes` option for this purpose:
+
+```
+$ docker-compose up --renew-anon-volumes
+```
