@@ -38,3 +38,13 @@ services:
     command: ["/opt/grafana-configurator/wait-for", "grafana:3000", "--", "sh", "/opt/grafana-configurator/example_data/run_this_to_copy.sh"]
     volumes:
       - ./grafana-configurator:/opt/grafana-configurator
+  web:
+    image: nginx
+    container_name: openstf-nginx
+    volumes:
+     - ./nginx/volume:/usr/share/nginx/html
+    ports:
+     - "8090:80"
+    environment:
+     - NGINX_HOST=foobar.com
+     - NGINX_PORT=80
