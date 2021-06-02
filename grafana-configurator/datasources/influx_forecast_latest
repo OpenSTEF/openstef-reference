@@ -2,7 +2,7 @@
   "id": 4,
   "uid": "000000004",
   "orgId": 1,
-  "name": "influx k8s prd forecasts",
+  "name": "forecast_latest",
   "type": "influxdb",
   "typeName": "InfluxDB",
   "typeLogoUrl": "public/app/plugins/datasource/influxdb/img/influxdb_logo.svg",

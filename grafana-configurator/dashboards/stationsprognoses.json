@@ -13,7 +13,7 @@
         "type": "dashboard"
       },
       {
-        "datasource": "mysql prd k8s",
+        "datasource": "tst_icarus",
         "enable": true,
         "hide": false,
         "iconColor": "rgba(255, 96, 96, 1)",
@@ -100,7 +100,7 @@
       "targets": [
         {
           "alias": "$description - prognose",
-          "datasource": "influx k8s prd forecasts",
+          "datasource": "forecast_latest",
           "groupBy": [
             {
               "params": [
@@ -159,7 +159,7 @@
         },
         {
           "alias": "Totaal - prognose",
-          "datasource": "influx k8s prd forecasts",
+          "datasource": "forecast_latest",
           "groupBy": [
             {
               "params": [
@@ -212,7 +212,7 @@
         },
         {
           "alias": "Totaal - realisatie",
-          "datasource": "Influx - Realised",
+          "datasource": "realised",
           "groupBy": [
             {
               "params": [
@@ -259,7 +259,7 @@
         },
         {
           "alias": "$tag_description - prognose (basecase)",
-          "datasource": "influx k8s prd forecasts",
+          "datasource": "forecast_latest",
           "groupBy": [
             {
               "params": [
@@ -318,7 +318,7 @@
         },
         {
           "alias": "Totaal - prognose (basecase)",
-          "datasource": "influx k8s prd forecasts",
+          "datasource": "forecast_latest",
           "groupBy": [
             {
               "params": [
@@ -371,7 +371,7 @@
         },
         {
           "alias": "$tag_system*-1 - realisatie",
-          "datasource": "Influx - Realised",
+          "datasource": "realised",
           "groupBy": [
             {
               "params": [
@@ -424,7 +424,7 @@
         },
         {
           "alias": "$tag_system - realisatie",
-          "datasource": "Influx - Realised",
+          "datasource": "realised",
           "groupBy": [
             {
               "params": [
@@ -526,7 +526,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "Influx - Realised",
+      "datasource": "realised",
       "fieldConfig": {
         "defaults": {},
         "overrides": []
@@ -676,7 +676,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "influx k8s prd forecasts",
+      "datasource": "forecast_latest",
       "fieldConfig": {
         "defaults": {},
         "overrides": []
@@ -787,7 +787,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "influx k8s prd forecasts",
+      "datasource": "forecast_latest",
       "fieldConfig": {
         "defaults": {},
         "overrides": []
@@ -915,7 +915,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "influx k8s prd forecasts",
+      "datasource": "forecast_latest",
       "fieldConfig": {
         "defaults": {},
         "overrides": []
@@ -1139,7 +1139,7 @@
       "targets": [
         {
           "alias": "Realised - Total",
-          "datasource": "Influx - Realised",
+          "datasource": "realised",
           "groupBy": [
             {
               "params": [
@@ -1198,7 +1198,7 @@
         },
         {
           "alias": "$tag_tAhead Hours Ahead",
-          "datasource": "influx k8s prd forecasts",
+          "datasource": "forecast_latest",
           "groupBy": [
             {
               "params": [
@@ -1238,7 +1238,7 @@
         },
         {
           "alias": "$col",
-          "datasource": "influx k8s prd forecasts",
+          "datasource": "forecast_latest",
           "groupBy": [
             {
               "params": [
@@ -1278,7 +1278,7 @@
         },
         {
           "alias": "$col",
-          "datasource": "influx k8s prd forecasts",
+          "datasource": "forecast_latest",
           "groupBy": [
             {
               "params": [
@@ -1368,7 +1368,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "influx k8s prd forecasts",
+      "datasource": "forecast_latest",
       "description": "Actual - all data for an accurate forecast is present\nCalculated - not all input data was available; a conservative forecast is delivered\nNot_renewed - A major exception occured; the forecast is based on the load of one week earlier",
       "fieldConfig": {
         "defaults": {},
@@ -1516,7 +1516,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "mysql prd k8s",
+      "datasource": "tst_icarus",
       "description": "If the prediction is used for TenneT, an EAN is included. Otherwise (usually) not.",
       "fieldConfig": {
         "defaults": {},
@@ -1630,7 +1630,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "mysql prd k8s",
+      "datasource": "tst_icarus",
       "description": "",
       "fieldConfig": {
         "defaults": {},
@@ -1810,7 +1810,7 @@
     },
     {
       "columns": [],
-      "datasource": "mysql prd k8s",
+      "datasource": "tst_icarus",
       "description": "Hyper parameters for the given prediction.",
       "fieldConfig": {
         "defaults": {},
@@ -1908,7 +1908,7 @@
     },
     {
       "columns": [],
-      "datasource": "mysql prd k8s",
+      "datasource": "tst_icarus",
       "description": "Overview of the energy split coefficients for the given prediction.",
       "fieldConfig": {
         "defaults": {},
@@ -2112,7 +2112,7 @@
       "targets": [
         {
           "alias": "$col",
-          "datasource": "influx k8s prd forecasts",
+          "datasource": "forecast_latest",
           "groupBy": [
             {
               "params": [
@@ -2301,7 +2301,7 @@
           "text": "Location_B",
           "value": "Location_B"
         },
-        "datasource": "mysql prd k8s",
+        "datasource": "tst_icarus",
         "definition": "SELECT p.name from predictions p where p.active=1 and model='xgb'",
         "description": null,
         "error": null,
@@ -2329,7 +2329,7 @@
           "text": "317",
           "value": "317"
         },
-        "datasource": "mysql prd k8s",
+        "datasource": "tst_icarus",
         "definition": "SELECT id from predictions where name in ('$Prediction_name')",
         "description": null,
         "error": null,
@@ -2358,7 +2358,7 @@
           "text": "None",
           "value": ""
         },
-        "datasource": "influx k8s prd forecasts",
+        "datasource": "forecast_latest",
         "definition": "SELECT \"description\" FROM \"prediction\" WHERE (\"pid\" =$Pid) AND time >= now() AND  time <= now()+15m",
         "description": null,
         "error": null,
@@ -2393,7 +2393,7 @@
           "text": "2",
           "value": "2"
         },
-        "datasource": "mysql prd k8s",
+        "datasource": "tst_icarus",
         "definition": "",
         "description": null,
         "error": null,
@@ -2431,7 +2431,7 @@
             "$__all"
           ]
         },
-        "datasource": "mysql prd k8s",
+        "datasource": "tst_icarus",
         "definition": "select s.sid from systems s left join predictions_systems ps on ps.system_id = s.sid left join  predictions p on ps.prediction_id = p.id where p.id='$Pid'",
         "description": null,
         "error": null,
@@ -2495,7 +2495,7 @@
           "text": "0.0",
           "value": "0.0"
         },
-        "datasource": "influx k8s prd forecasts",
+        "datasource": "forecast_latest",
         "definition": "SHOW TAG VALUES FROM prediction_tAheads WITH key = tAhead where pid =~/$Pid/",
         "description": null,
         "error": null,
@@ -2527,7 +2527,7 @@
             "$__all"
           ]
         },
-        "datasource": "mysql prd k8s",
+        "datasource": "tst_icarus",
         "definition": "SELECT sid from systems where polarity = -1 and sid in ($Systems)",
         "description": null,
         "error": null,
@@ -2555,7 +2555,7 @@
           "text": "5.4768915",
           "value": "5.4768915"
         },
-        "datasource": "mysql prd k8s",
+        "datasource": "tst_icarus",
         "definition": "SELECT max(lon) as lon FROM systems WHERE sid IN ($Systems)",
         "description": null,
         "error": null,
@@ -2583,7 +2583,7 @@
           "text": "52.5150949",
           "value": "52.5150949"
         },
-        "datasource": "mysql prd k8s",
+        "datasource": "tst_icarus",
         "definition": "SELECT max(lat) FROM systems WHERE sid IN ($Systems)",
         "description": null,
         "error": null,

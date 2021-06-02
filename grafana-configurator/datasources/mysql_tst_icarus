@@ -2,7 +2,7 @@
   "id": 5,
   "uid": "000000005",
   "orgId": 1,
-  "name": "mysql prd k8s",
+  "name": "tst_icarus",
   "type": "mysql",
   "typeName": "MySQL",
   "typeLogoUrl": "public/app/plugins/datasource/mysql/img/mysql_logo.svg",

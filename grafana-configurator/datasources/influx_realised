@@ -2,7 +2,7 @@
   "id": 6,
   "uid": "000000006",
   "orgId": 1,
-  "name": "Influx - Realised",
+  "name": "realised",
   "type": "influxdb",
   "typeName": "InfluxDB",
   "typeLogoUrl": "public/app/plugins/datasource/influxdb/img/influxdb_logo.svg",

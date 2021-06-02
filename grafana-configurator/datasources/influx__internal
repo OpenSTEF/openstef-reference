@@ -2,7 +2,7 @@
   "id": 9,
   "uid": "000000009",
   "orgId": 1,
-  "name": "InfluxDB - _internal",
+  "name": "_internal",
   "type": "influxdb",
   "typeName": "InfluxDB",
   "typeLogoUrl": "public/app/plugins/datasource/influxdb/img/influxdb_logo.svg",
