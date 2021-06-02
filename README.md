@@ -1,20 +1,38 @@
 # openstf-reference
-Reference implementation of the openstf stack
 
-```
-docker compose up
+Reference implementation of the **openstf** stack.
+
+
+
+
+# Installation
+
+## Prerequisites
+
+You will need to install both Docker and Docker Compose.
+
+### Install Docker
+
+Follow the instruction on the Get Docker page: https://docs.docker.com/get-docker/
+
+### Install Docker Compose
+
+Follow the instruction on the Install Docker Compose page: https://docs.docker.com/compose/install/
+
+# Usage
+
+To start using the **openstf** reference stack use Docker Compose to bring up the whole stack:
+
+```shell
+$ sudo docker-compose up
 ```
 
-### PhpMyAdmin
+## PhpMyAdmin
 
 Open on https://localhost:8080
 Log in using username `root` and password `root`
 
-### Grafana
+## Grafana
 
 Open on https://localhost:3000
 Log in using username `admin` and password `admin`
-
-## Pre-requirements
-Have docker installed:
-https://www.docker.com/get-started
