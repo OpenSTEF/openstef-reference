@@ -106,6 +106,14 @@ curl -GET http://localhost:8086/query?epoch=s&pretty=true \
         --data-urlencode "q=\
             show tag keys on forecast_latest from prediction;\
             show field keys on forecast_latest from prediction;\
-            select customer,pid,forecast from prediction\
+            select time,customer,forecast,pid,quality,quantile_P05,quantile_P10,quantile_P30,quantile_P50,quantile_P70,quantile_P90,quantile_P95,stdev,tAhead,type from prediction\
                 WHERE ("pid" = '459' OR "pid" = '321' OR "pid" = '317' OR "pid" = '313')\
-                AND time >= now() - 24h" > export.json
+                AND time >= now() - 2d" > export.json
+['time', 'algtype', 'created', 'customer', 'description', 'description_1', 'forecast', 'forecast_other', 'forecast_solar', 'forecast_wind_on_shore', 'pid', 'quality', 'quantile_P05', 'quantile_P10', 'quantile_P30', 'quantile_P50', 'quantile_P70', 'quantile_P90', 'quantile_P95', 'stdev', 'tAhead', 'type']
+
+COLUMNS="time,customer,description,forecast,pid,quality,quantile_P05,quantile_P10,quantile_P30,quantile_P50,quantile_P70,quantile_P90,quantile_P95,stdev,tAhead,type"
+
+# Restore using `influx` API
+curl -XPOST http://localhost:8086/query?precision=s \
+    --data-urlencode "db=forecast_latest" \
+    -d @forecast_latest_prediction.txt

@@ -49,6 +49,16 @@ def convert_row_to_line(serie_name, row, columns):
         if value is None:
             continue
 
+        # HACK for some reason the exported json gives pid as a string value?
+        if col.name == "pid":
+            value = int(value)
+
+        if type(value) is str:
+            # '\' are required when using influx cli
+            # value = f'\\"{value}\\"'
+            # No '\' required when using curl
+            value = f'"{value}"'
+
         if col.type is ColumnType.TIMESTAMP:
             timestamp = value
 
