@@ -1,0 +1,1 @@
+{"id":5,"uid":"000000005","orgId":1,"name":"mysql prd k8s","type":"mysql","typeName":"MySQL","typeLogoUrl":"public/app/plugins/datasource/mysql/img/mysql_logo.svg","access":"proxy","url":"icarus-prd.cfxynab8sqjy.eu-central-1.rds.amazonaws.com:3306","password":"root","user":"root","database":"tst_icarus","basicAuth":false,"isDefault":false,"jsonData":{},"readOnly":false}
