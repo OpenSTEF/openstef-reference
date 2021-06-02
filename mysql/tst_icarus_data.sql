@@ -8,6 +8,9 @@ INSERT INTO `customersApiKeys` (`id`, `cid`, `name`, `apiKey`) VALUES
 (99, 312, 'Location_B', 'uuid-Location_B'),
 (94, 307, 'Location_C', 'uuid-Location_C');
 
+INSERT INTO `systemsApiKeys` (`id`, `name`, `apiKey`) VALUES
+(199, 'Measurements', 'uuid-Measurements');
+
 INSERT INTO `systems` (`sid`, `origin`, `lat`, `lon`, `region`, `timezone`, `brand`, `freq`, `qual`, `lag`, `created`, `autoupdate`, `polarity`, `measurements_customer_api_key_id`) VALUES
 ('Location_C_System_1', 'ems', 52.6, 5.3, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, -1, 199),
 ('Location_C_System_2', 'ems', 52.6, 5.3, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, -1, 199),
