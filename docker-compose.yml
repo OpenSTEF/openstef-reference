@@ -35,7 +35,7 @@ services:
     container_name: openstf-grafana-configurator
     depends_on:
       - "grafana"
-    command: ["/opt/grafana-configurator/wait-for", "grafana:3000", "--", "sh", "/opt/grafana-configurator/example_data/run_this_to_copy.sh"]
+    command: ["/opt/grafana-configurator/wait-for", "grafana:3000", "--", "sh", "/opt/grafana-configurator/configurator.sh"]
     volumes:
       - ./grafana-configurator:/opt/grafana-configurator
   web:
