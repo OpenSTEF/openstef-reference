@@ -28,3 +28,11 @@ services:
     # ${DOCKER_HOME}/grafana/volume/data:/var/lib/grafana
     ports:
       - 3000:3000
+  grafana-configurator:
+    image: alpine:3.7
+    container_name: openstf-grafana-configurator
+    depends_on:
+      - "grafana"
+    command: ["/opt/grafana-configurator/wait-for", "grafana:3000", "--", "sh", "/opt/grafana-configurator/example_data/run_this_to_copy.sh"]
+    volumes:
+      - ./grafana-configurator:/opt/grafana-configurator
