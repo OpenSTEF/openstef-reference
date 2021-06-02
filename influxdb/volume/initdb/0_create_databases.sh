@@ -2,10 +2,20 @@
 set -e
 
 echo "Start setup_databases.sh script"
-echo "Create database '$FORECAST_DB_NAME'"
-influx -execute "CREATE DATABASE $FORECAST_DB_NAME"
+
+# Create forecast database
+echo "Create database '$INFLUXDB_FORECASTS_DB_NAME'"
+influx -execute "CREATE DATABASE $INFLUXDB_FORECASTS_DB_NAME"
 if [ $? -eq 0 ]; then
-    echo "Succesfully created '$FORECAST_DB_NAME'"
+    echo "Succesfully created '$INFLUXDB_FORECASTS_DB_NAME'"
 else
-    echo "Failed to create database '$FORECAST_DB_NAME'"
+    echo "Failed to create database '$INFLUXDB_FORECASTS_DB_NAME'"
+fi
+# Create realised database
+echo "Create database '$INFLUXDB_REALISED_DB_NAME'"
+influx -execute "CREATE DATABASE $INFLUXDB_REALISED_DB_NAME"
+if [ $? -eq 0 ]; then
+    echo "Succesfully created '$INFLUXDB_REALISED_DB_NAME'"
+else
+    echo "Failed to create database '$INFLUXDB_REALISED_DB_NAME'"
 fi
