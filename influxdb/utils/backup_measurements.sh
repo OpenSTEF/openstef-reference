@@ -98,4 +98,14 @@ curl -GET http://localhost:8086/query?epoch=s&pretty=true \
             show field keys on forecast_latest from prediction;\
             select * from prediction\
                 WHERE ("pid" = '459' OR "pid" = '321' OR "pid" = '317' OR "pid" = '313')\
-                AND time >= now() - 7d limit 1" > export.json
+                AND time >= now() - 24h" > export.json
+
+# Backup using `influx` API
+curl -GET http://localhost:8086/query?epoch=s&pretty=true \
+        --data-urlencode "db=forecast_latest" \
+        --data-urlencode "q=\
+            show tag keys on forecast_latest from prediction;\
+            show field keys on forecast_latest from prediction;\
+            select customer,pid,forecast from prediction\
+                WHERE ("pid" = '459' OR "pid" = '321' OR "pid" = '317' OR "pid" = '313')\
+                AND time >= now() - 24h" > export.json

@@ -4,7 +4,7 @@ services:
     image: influxdb:1.7.3-alpine
     container_name: openstf-influxdb
     volumes:
-      - ./influxdb/volume:/docker-entrypoint-initdb.d
+      - ./influxdb/volume/initdb:/docker-entrypoint-initdb.d
     environment:
       FORECAST_DB_NAME: forecast_latest
     ports:
@@ -13,7 +13,7 @@ services:
     image: mysql:5.7
     container_name: openstf-mysql
     volumes:
-      - ./mysql/volume:/docker-entrypoint-initdb.d
+      - ./mysql/volume/initdb:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: tst_icarus
