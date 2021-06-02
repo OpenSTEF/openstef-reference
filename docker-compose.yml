@@ -28,6 +28,8 @@ services:
     # ${DOCKER_HOME}/grafana/volume/data:/var/lib/grafana
     ports:
       - 3000:3000
+    env:
+      GF_PANELS_DISABLE_SANITIZE_HTML: true
   grafana-configurator:
     image: alpine:3.7
     container_name: openstf-grafana-configurator
