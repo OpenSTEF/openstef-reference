@@ -12,8 +12,11 @@ services:
   mysql:
     image: mysql:5.7
     container_name: openstf-mysql
+    volumes:
+      - ./mysql/volume:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tst_icarus
     ports:
       - 3306:3306
   phpmyadmin:
