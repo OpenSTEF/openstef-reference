@@ -4,25 +4,25 @@ services:
     image: influxdb:1.7.3-alpine
     container_name: openstf-influxdb
     ports:
-      - 58086:8086
+      - 8086:8086
   mysql:
     image: mysql:5.7
     container_name: openstf-mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
     ports:
-      - 53306:3306
+      - 3306:3306
   phpmyadmin:
     image: phpmyadmin
     container_name: openstf-phpmyadmin
     environment:
       PMA_HOST: mysql
     ports:
-      - 50080:80
+      - 8080:80
   grafana:
     image: grafana/grafana:7.5.1
     container_name: openstf-grafana
     # volumes:
     # ${DOCKER_HOME}/grafana/volume/data:/var/lib/grafana
     ports:
-      - 53000:3000
+      - 3000:3000
