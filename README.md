@@ -14,3 +14,7 @@ Log in using username `root` and password `root`
 
 Open on https://localhost:3000
 Log in using username `admin` and password `admin`
+
+## Pre-requirements
+Have docker installed:
+https://www.docker.com/get-started
