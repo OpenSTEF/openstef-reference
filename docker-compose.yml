@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.7"
 services:
   influxdb:
     image: influxdb:1.7.3-alpine
@@ -17,8 +17,8 @@ services:
     container_name: openstf-phpmyadmin
     environment:
       PMA_HOST: mysql
-      ports:
-        - 50080:80
+    ports:
+      - 50080:80
   grafana:
     image: grafana/grafana:7.5.1
     container_name: openstf-grafana
