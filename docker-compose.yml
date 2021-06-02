@@ -43,7 +43,7 @@ services:
     environment:
       GRAFANA_USER: admin
       GRAFANA_PASSWORD: admin
-  web:
+  nginx:
     image: nginx
     container_name: openstf-nginx
     volumes:
