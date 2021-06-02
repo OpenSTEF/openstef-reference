@@ -4,7 +4,7 @@ services:
     image: influxdb:1.7.3-alpine
     container_name: openstf-influxdb
     volumes:
-      - ./influxdb/volume/initdb:/docker-entrypoint-initdb.d
+      - ./influxdb/volumes/initdb:/docker-entrypoint-initdb.d
     environment:
       INFLUXDB_FORECASTS_DB_NAME: forecast_latest
       INFLUXDB_REALISED_DB_NAME: realised
@@ -14,7 +14,7 @@ services:
     image: mysql:5.7
     container_name: openstf-mysql
     volumes:
-      - ./mysql/volume/initdb:/docker-entrypoint-initdb.d
+      - ./mysql/volumes/initdb:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: tst_icarus
@@ -43,7 +43,7 @@ services:
       - "grafana"
     command: ["/opt/grafana-configurator/wait-for", "grafana:3000", "--", "sh", "/opt/grafana-configurator/configurator.sh"]
     volumes:
-      - ./grafana-configurator:/opt/grafana-configurator
+      - ./grafana-configurator/volumes/config:/opt/grafana-configurator
     environment:
       GRAFANA_USER: admin
       GRAFANA_PASSWORD: admin
@@ -52,8 +52,8 @@ services:
     container_name: openstf-nginx
     volumes:
       # - ./nginx/volume/config:/etc/nginx
-      - ./nginx/volume/config/conf.d/default.conf:/etc/nginx/conf.d/default.conf
-      - ./nginx/volume/data:/usr/share/nginx/html
+      - ./nginx/volumes/config/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/volumes/data:/usr/share/nginx/html
     ports:
       - "8090:80"
     environment:
