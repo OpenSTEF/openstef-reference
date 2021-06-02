@@ -29,7 +29,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 48,
+  "id": null,
   "iteration": 1622641261834,
   "links": [],
   "panels": [
@@ -2637,6 +2637,6 @@
   },
   "timezone": "",
   "title": "Stationsprognoses",
-  "uid": "_o1mV7WWz",
+  "uid": null,
   "version": 239
 }
