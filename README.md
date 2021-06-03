@@ -52,6 +52,10 @@ To enter the InfluxDB container run:
 $ sudo docker exec -it openstf-influxdb /bin/bash
 ```
 
+```shell
+$ sudo docker exec -it openstf-nginx /bin/bash
+```
+
 ## Clear the volumes
 
 Docker will try using previous volumes on runs. But sometimes you want to start fresh. Docker-compose offers the `--renew-anon-volumes` option for this purpose:
