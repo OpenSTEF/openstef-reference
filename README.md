@@ -63,3 +63,13 @@ Docker will try using previous volumes on runs. But sometimes you want to start 
 ```
 $ docker-compose up --renew-anon-volumes
 ```
+
+# TODO
+- nginx: use a persistent volume to store and share .htmls, which icarus-forecasts later can use to store trained models and reports
+- grafana: 
+-- In the stationsprognoses-dashboard use localhost:8090 references for trained_models/*/*.html instead of dashboard.icarus.energy
+-- change date-time-range of stationsprognose-dashboard so default data is visible (reference to 'now')
+-- change name of datasources for easier interpretation
+-- change example data to present
+-- include 'realized' example data
+- mysql: change 'tst_icarus' name of table
