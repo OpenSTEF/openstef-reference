@@ -1498,7 +1498,7 @@
       "id": 12,
       "links": [],
       "options": {
-        "content": "<iframe width=\"100%\" height=\"270\" id=\"gmap_canvas\" src=\"https://dashboard.icarus.energy/trained_models/$Pid/weight_plot.html\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
+        "content": "<iframe width=\"100%\" height=\"270\" id=\"gmap_canvas\" src=\"http://localhost:8090/trained_models/$Pid/weight_plot.html\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
         "mode": "html"
       },
       "pluginVersion": "7.5.1",
@@ -1751,7 +1751,7 @@
       "id": 97,
       "links": [],
       "options": {
-        "content": "<iframe width=\"100%\" height=\"300\" id=\"gmap_canvas\" src=\"https://dashboard.icarus.energy/trained_models/$Pid/Predictor0.25.html\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
+        "content": "<iframe width=\"100%\" height=\"300\" id=\"gmap_canvas\" src=\"http://localhost:8090/trained_models/$Pid/Predictor0.25.html\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
         "mode": "html"
       },
       "pluginVersion": "7.5.1",
@@ -1775,7 +1775,7 @@
       "id": 98,
       "links": [],
       "options": {
-        "content": "<iframe width=\"100%\" height=\"300\" id=\"gmap_canvas\" src=\"https://dashboard.icarus.energy/trained_models/$Pid/Predictor47.0.html\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
+        "content": "<iframe width=\"100%\" height=\"300\" id=\"gmap_canvas\" src=\"http://localhost:8090/trained_models/$Pid/Predictor47.0.html\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
         "mode": "html"
       },
       "pluginVersion": "7.5.1",
@@ -1799,7 +1799,7 @@
       "id": 102,
       "links": [],
       "options": {
-        "content": "<script>\n$(function() {\n    $.ajax({\n        url: \"https://dashboard.icarus.energy/trained_models/$Pid/capacity/capacity_prognoses.html\",\n        dataType: \"jsonp\",\n        timeout: 5000,\n\n        success: function () {\n            $(\"#iframe-capacity\").attr(\"src\", \"https://dashboard.icarus.energy/trained_models/$Pid/capacity/capacity_prognoses.html\");\n        },\n        error: function (parsedjson) {\n            if(parsedjson.status == \"200\") {\n                $(\"#iframe-capacity\").attr(\"src\", \"https://dashboard.icarus.energy/trained_models/$Pid/capacity/capacity_prognoses.html\");\n            } else {\n                $(\"#iframe-capacity\").attr(\"src\", \"https://dashboard.icarus.energy/favicon.ico\");\n            }\n        }\n    });\n});\n</script>\n<iframe width=\"100%\" height=\"300\" id=\"iframe-capacity\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
+        "content": "<script>\n$(function() {\n    $.ajax({\n        url: \"http://localhost:8090/trained_models/$Pid/capacity/capacity_prognoses.html\",\n        dataType: \"jsonp\",\n        timeout: 5000,\n\n        success: function () {\n            $(\"#iframe-capacity\").attr(\"src\", \"http://localhost:8090/trained_models/$Pid/capacity/capacity_prognoses.html\");\n        },\n        error: function (parsedjson) {\n            if(parsedjson.status == \"200\") {\n                $(\"#iframe-capacity\").attr(\"src\", \"http://localhost:8090/trained_models/$Pid/capacity/capacity_prognoses.html\");\n            } else {\n                $(\"#iframe-capacity\").attr(\"src\", \"http://localhost:8090/favicon.ico\");\n            }\n        }\n    });\n});\n</script>\n<iframe width=\"100%\" height=\"300\" id=\"iframe-capacity\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
         "mode": "html"
       },
       "pluginVersion": "7.5.1",
@@ -2279,7 +2279,7 @@
       "id": 100,
       "links": [],
       "options": {
-        "content": "<script>\r\n$(function() {\r\n    $.ajax({\r\n        url: \"https://dashboard.icarus.energy/trained_models/$Pid/stations_detection.html\",\r\n        dataType: \"jsonp\",\r\n        timeout: 5000,\r\n\r\n        success: function () {\r\n            $(\"#iframe\").attr(\"src\", \"https://dashboard.icarus.energy/trained_models/$Pid/stations_detection.html\");\r\n        },\r\n        error: function (parsedjson) {\r\n            if(parsedjson.status == \"200\") {\r\n                $(\"#iframe\").attr(\"src\", \"https://dashboard.icarus.energy/trained_models/$Pid/stations_detection.html\");\r\n            } else {\r\n                $(\"#iframe\").attr(\"src\", \"https://dashboard.icarus.energy/favicon.ico\");\r\n            }\r\n        }\r\n    });\r\n});\r\n</script>\r\n<iframe width=\"100%\" height=\"300\" id=\"iframe\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
+        "content": "<script>\r\n$(function() {\r\n    $.ajax({\r\n        url: \"http://localhost:8090/trained_models/$Pid/stations_detection.html\",\r\n        dataType: \"jsonp\",\r\n        timeout: 5000,\r\n\r\n        success: function () {\r\n            $(\"#iframe\").attr(\"src\", \"http://localhost:8090/trained_models/$Pid/stations_detection.html\");\r\n        },\r\n        error: function (parsedjson) {\r\n            if(parsedjson.status == \"200\") {\r\n                $(\"#iframe\").attr(\"src\", \"http://localhost:8090/trained_models/$Pid/stations_detection.html\");\r\n            } else {\r\n                $(\"#iframe\").attr(\"src\", \"http://localhost:8090/favicon.ico\");\r\n            }\r\n        }\r\n    });\r\n});\r\n</script>\r\n<iframe width=\"100%\" height=\"300\" id=\"iframe\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
         "mode": "html"
       },
       "pluginVersion": "7.5.1",
