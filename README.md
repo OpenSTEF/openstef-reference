@@ -68,6 +68,10 @@ $ docker-compose up --renew-anon-volumes
 * Influx
   * add realised data
   * shift data to 'now' (realised and forecasts)
+* icarus-openstf-api (not included yet)
+  * make icarus-base opensource
+  * make icarus-openstf-api opensource
+  * add icarus-openstf-api pod
 * nginx
   * use a persistent volume to store and share .htmls, which icarus-forecasts later can use to store trained models and reports
 * grafana:
