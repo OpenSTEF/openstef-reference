@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-echo "Start setup_databases.sh script"
+echo "Start 0_create_databases.sh script"
 
 # Create forecast database
 echo "Create database '$INFLUXDB_FORECASTS_DB_NAME'"

@@ -1,14 +1,15 @@
 #!/bin/sh
 set -e
 
-FILENAME="/docker-entrypoint-initdb.d/forecast_latest_prediction.txt"
-
-# This is very slow for a lot of data
-# while read line; do
-#     influx -database $INFLUXDB_FORECASTS_DB_NAME -execute "INSERT $line"
-# done < $FILENAME
-
 # Install curl in the Alpine container
 apk add --no-cache curl
+
+# Write forecast_latest
+FILENAME="/docker-entrypoint-initdb.d/forecast_latest_prediction.txt"
 curl -i -XPOST "http://localhost:8086/write?db=forecast_latest&precision=s" \
+    --data-binary "@$FILENAME"
+
+# Write realised
+FILENAME="/docker-entrypoint-initdb.d/realised_output.txt"
+curl -i -XPOST "http://localhost:8086/write?db=realised&precision=s" \
     --data-binary "@$FILENAME"
