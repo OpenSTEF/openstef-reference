@@ -68,9 +68,12 @@ def convert_row_to_line(serie_name, row, columns):
         if col.type is ColumnType.FIELD:
             fields[col.name] = value
 
-    tag_set = ",".join([f"{k}={v}" for k, v in tags.items()])
+    # For quoting guidelines, see influx v1.7 docs
+    # Noting, except for string field values
+    tag_set = ",".join([f"{k}={v}" for k, v in tags.items()]).replace('"','')
     field_set = ",".join([f"{k}={v}" for k, v in fields.items()])
     line = f"{serie_name},{tag_set} {field_set} {timestamp}"
+
     return line
 
 
