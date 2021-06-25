@@ -1,10 +1,8 @@
 
 # openstf-reference
 
-Reference implementation of the **openstf** stack.
-
-
-
+Reference implementation of the **openstf** stack. It includes all key functionality, e.g. the forecast engine, data storage and -models, the expert user dashboard!
+![image](https://user-images.githubusercontent.com/18208480/123398475-e008f100-d5a3-11eb-9d36-75edfec6760a.png)
 
 # Installation
 
