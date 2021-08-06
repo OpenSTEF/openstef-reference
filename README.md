@@ -26,6 +26,9 @@ To start using the **openstf** reference stack use Docker Compose to bring up th
 $ sudo docker-compose up
 ```
 
+Note: if you're running docker on a windows machine, issues might be caused by windows line endings.
+All line endings should be Unix!
+
 ## Grafana
 
 Open on http://localhost:3000
@@ -76,8 +79,6 @@ Nice-to-haves
   * add icarus-openstf-api pod
 * nginx
   * use a persistent volume to store and share .htmls, which icarus-forecasts later can use to store trained models and reports
-* grafana:
-    * change name of datasources for easier interpretation
 * mysql
   * change 'tst_icarus' name of table
 
