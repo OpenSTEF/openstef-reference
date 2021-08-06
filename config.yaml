@@ -1,0 +1,21 @@
+loglevel: INFO
+influxdb:
+  host: localhost
+  port: 8086
+  username: admin
+  password: admin
+api:
+  url: localhost
+  username: username
+  password: admin
+  admin_username: username
+  admin_password: admin
+mysql:
+  host: localhost
+  port: 3307
+  database_name: tst_icarus
+  username: root
+  password: root
+proxies:
+  http: None
+  htpps: None
