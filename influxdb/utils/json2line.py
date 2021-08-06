@@ -12,6 +12,7 @@ from dataclasses import dataclass
 import sys
 import json
 
+
 class ColumnType(Enum):
     TIMESTAMP = "timestamp"
     TAG = "tag"
@@ -23,6 +24,7 @@ class Column:
     name: str
     type: ColumnType
     index: int
+
 
 def convert_data_to_line(data_serie, tags_serie, fields_serie):
     serie_name = data_serie["name"]
@@ -70,7 +72,7 @@ def convert_row_to_line(serie_name, row, columns):
 
     # For quoting guidelines, see influx v1.7 docs
     # Noting, except for string field values
-    tag_set = ",".join([f"{k}={v}" for k, v in tags.items()]).replace('"','')
+    tag_set = ",".join([f"{k}={v}" for k, v in tags.items()]).replace('"', "")
     field_set = ",".join([f"{k}={v}" for k, v in fields.items()])
     line = f"{serie_name},{tag_set} {field_set} {timestamp}"
 
@@ -81,6 +83,7 @@ def get_field_names(serie):
     values = serie["values"]
     field_names = [v[0] for v in values]
     return field_names
+
 
 def get_tag_names(serie):
     values = serie["values"]
@@ -154,4 +157,3 @@ if __name__ == "__main__":
             fields_serie = json.load(fh)["results"][0]["series"][0]
 
     convert_data_to_line(data_serie, tags_serie, fields_serie)
-
