@@ -71,7 +71,7 @@ Priority
   * update weight_plot.html for all models (to not have T-30min as most important) 
 Nice-to-haves
 * icarus-openstf-api (not included yet)
-  * make icarus-base opensource
+  * add openstf-dbc (JM is working on it)
   * make icarus-openstf-api opensource
   * add icarus-openstf-api pod
 * nginx
