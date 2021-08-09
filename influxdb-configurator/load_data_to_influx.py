@@ -5,7 +5,7 @@ import pandas as pd
 from openstf_dbc.data_interface import _DataInterface
 from openstf_dbc.config.config import ConfigManager
 
-PROJECT_ROOT = Path(__file__).absolute()
+PROJECT_ROOT = Path(__file__).parent.absolute()
 
 extra_info_customers = {317:"Location_A",
 313:"Location_C",321:"Location_B", 459:"Location_A"}

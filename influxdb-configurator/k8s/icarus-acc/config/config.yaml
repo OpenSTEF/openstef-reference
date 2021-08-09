@@ -1,6 +1,6 @@
 loglevel: INFO
 influxdb:
-  host: localhost
+  host: influxdb
   port: 8086
   username: admin
   password: admin
