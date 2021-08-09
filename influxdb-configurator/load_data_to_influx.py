@@ -1,10 +1,11 @@
 from datetime import datetime
 from pathlib import Path
-
-
 import pandas as pd
 
 from openstf_dbc.data_interface import _DataInterface
+from openstf_dbc.config.config import ConfigManager
+
+PROJECT_ROOT = Path(__file__).parent.absolute()
 
 extra_info_customers = {317:"Location_A",
 313:"Location_C",321:"Location_B", 459:"Location_A"}
@@ -23,9 +24,6 @@ def load_load_data() -> bool:
     load_data["created"] = load_data["created"].astype(float)
 
     most_recent_date = load_data.index.max().to_pydatetime()
-
-    print(load_data.index.min())
-    print(load_data.index.max())
 
     delta = datetime.utcnow() - most_recent_date
 
@@ -104,6 +102,7 @@ def load_weather_data(delta):
 
 
 if __name__ == "__main__":
+    config = ConfigManager.load_project_config(project_root=PROJECT_ROOT).get_instance()
     result, delta = load_load_data()
     load_t_ahead_data(delta)
     load_weather_data(delta)
