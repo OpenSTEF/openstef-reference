@@ -46,6 +46,20 @@ services:
     environment:
       GRAFANA_USER: admin
       GRAFANA_PASSWORD: admin
+  influx-configurator:
+    image: python:3.9
+    container_name: openstf-influx-configurator
+    depends_on:
+      - "influxdb"
+    command: >
+      sh -c "apt-get update &&
+      apt-get install make automake gcc g++ subversion python3-dev &&      
+      pip install pandas influxdb-client openstf-dbc &&
+      cd /opt/influxdb-configurator/ &&
+      python load_data_to_influx.py
+      "
+    volumes:
+      - ./influxdb-configurator:/opt/influxdb-configurator
   nginx:
     image: nginx
     container_name: openstf-nginx
