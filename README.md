@@ -66,12 +66,6 @@ $ docker-compose up --renew-anon-volumes
 ```
 
 # TODO
-Priority
-* Influx
-  * add prediction_tAheads data
-  * shift data to 'now' (all data)
-* Nginx
-  * update weight_plot.html for all models (to not have T-30min as most important) 
 Nice-to-haves
 * icarus-openstf-api (not included yet)
   * add openstf-dbc (JM is working on it)
