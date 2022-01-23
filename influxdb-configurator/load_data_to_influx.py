@@ -103,6 +103,7 @@ def load_weather_data(delta):
 
 if __name__ == "__main__":
     config = ConfigManager.load_project_config(project_root=PROJECT_ROOT).get_instance()
+    _DataInterface(config)
     result, delta = load_load_data()
     load_t_ahead_data(delta)
     load_weather_data(delta)

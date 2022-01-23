@@ -53,6 +53,7 @@ services:
       - "influxdb"
     command: >
       sh -c "apt-get update &&
+      pip install --upgrade pip &&
       apt-get install make automake gcc g++ subversion python3-dev &&      
       pip install pandas influxdb-client openstf-dbc &&
       cd /opt/influxdb-configurator/ &&
@@ -60,6 +61,9 @@ services:
       "
     volumes:
       - ./influxdb-configurator:/opt/influxdb-configurator
+    build:
+      context: .
+      shm_size: '250mb'
   nginx:
     image: nginx
     container_name: openstf-nginx
