@@ -1,7 +1,7 @@
 
 # Openstf-reference
 
-Reference implementation of the **openstf** stack. It includes all key functionality, e.g. the forecast engine, data storage and -models, the expert user dashboard!
+Reference implementation of the **OpenSTEF** stack. It includes all key functionality, e.g. the forecast engine, data storage and -models, the expert user dashboard!
 ![screenshot](https://user-images.githubusercontent.com/60883372/146760483-29af3ac7-62af-4f13-98c7-982a79c517d1.jpg)
 Screenshot of the operational dashboard showing the key functionality of OpenSTEF. 
 Dashboard documentation can be found [here](https://github.com/OpenSTEF/.github/blob/main/profile/README.md).
@@ -21,7 +21,7 @@ Follow the instruction on the Install Docker Compose page: https://docs.docker.c
 
 # Usage
 
-To start using the **openstf** reference stack use Docker Compose to bring up the whole stack:
+To start using the **OpenSTEF** reference stack use Docker Compose to bring up the whole stack:
 
 ```shell
 $ sudo docker-compose up
@@ -85,7 +85,7 @@ This project includes third-party libraries, which are licensed under their own 
 
 
 ## Contributing
-Please read [CODE_OF_CONDUCT.md](https://github.com/OpenSTEF/.github/blob/main/CODE_OF_CONDUCT.md) and [CONTRIBUTING.md](https://github.com/OpenSTEF/.github/blob/main/CONTRIBUTING.md) for details on the process for submitting pull requests to us.
+Please read [CODE_OF_CONDUCT.md](https://github.com/OpenSTEF/.github/blob/main/CODE_OF_CONDUCT.md), [CONTRIBUTING.md](https://github.com/OpenSTEF/.github/blob/main/CONTRIBUTING.md) and [PROJECT_GOVERNANACE.md](https://github.com/OpenSTEF/.github/blob/main/PROJECT_GOVERNANCE.md) for details on the process for submitting pull requests to us.
 
 ## Contact
 Please read [SUPPORT.md](https://github.com/OpenSTEF/.github/blob/main/SUPPORT.md) for how to connect and get into contact with the OpenSTEF project
