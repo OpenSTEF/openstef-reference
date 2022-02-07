@@ -1,5 +1,5 @@
 
-# Openstf-reference
+# Openstef-reference
 
 Reference implementation of the **OpenSTEF** stack. It includes all key functionality, e.g. the forecast engine, data storage and -models, the expert user dashboard!
 ![screenshot](https://user-images.githubusercontent.com/60883372/146760483-29af3ac7-62af-4f13-98c7-982a79c517d1.jpg)
@@ -65,17 +65,6 @@ Docker will try using previous volumes on runs. But sometimes you want to start 
 ```
 $ docker-compose up --renew-anon-volumes
 ```
-
-# TODO
-Nice-to-haves
-* icarus-openstf-api (not included yet)
-  * add openstf-dbc (JM is working on it)
-  * make icarus-openstf-api opensource
-  * add icarus-openstf-api pod
-* nginx
-  * use a persistent volume to store and share .htmls, which icarus-forecasts later can use to store trained models and reports
-* mysql
-  * change 'tst_icarus' name of table
 
 ## License
 This project is licensed under the Mozilla Public License, version 2.0 - see LICENSE for details.
