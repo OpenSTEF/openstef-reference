@@ -55,7 +55,7 @@ services:
       sh -c "apt-get update &&
       pip install --upgrade pip &&
       apt-get install -y make automake gcc g++ subversion python3-dev &&      
-      pip install pandas influxdb-client openstf-dbc &&
+      pip install pandas influxdb-client openstef-dbc pydantic &&
       cd /opt/influxdb-configurator/ &&
       python load_data_to_influx.py
       "

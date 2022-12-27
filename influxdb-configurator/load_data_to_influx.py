@@ -2,13 +2,17 @@ from datetime import datetime
 from pathlib import Path
 import pandas as pd
 
-from openstf_dbc.data_interface import _DataInterface
-from openstf_dbc.config.config import ConfigManager
+from openstef_dbc.data_interface import _DataInterface
+from configuration import AppSettings
 
 PROJECT_ROOT = Path(__file__).parent.absolute()
 
-extra_info_customers = {317:"Location_A",
-313:"Location_C",321:"Location_B", 459:"Location_A"}
+extra_info_customers = {
+    317: "Location_A",
+    313: "Location_C",
+    321: "Location_B",
+    459: "Location_A",
+}
 
 
 def load_load_data() -> bool:
@@ -40,25 +44,34 @@ def load_load_data() -> bool:
 
     return result, delta
 
+
 def load_t_ahead_data(delta):
 
-    data = pd.read_csv(Path("data/wide_forecast_tAheads_prediction.csv"), parse_dates=True, index_col=0)
+    data = pd.read_csv(
+        Path("data/wide_forecast_tAheads_prediction.csv"), parse_dates=True, index_col=0
+    )
     melted = data.melt(ignore_index=False)
 
-    melted['field'] = melted['variable'].apply(lambda x: x.split('.')[1].split(' ')[0])
-    melted['pid'] = melted['variable'].apply(lambda x: int(x.split('.')[1].split(' ')[2][:-1]))
-    melted['tAhead'] = melted['variable'].apply(lambda x: int(x.split('.')[1].split(' ')[4]))
-    melted = melted.iloc[:,1:]
+    melted["field"] = melted["variable"].apply(lambda x: x.split(".")[1].split(" ")[0])
+    melted["pid"] = melted["variable"].apply(
+        lambda x: int(x.split(".")[1].split(" ")[2][:-1])
+    )
+    melted["tAhead"] = melted["variable"].apply(
+        lambda x: int(x.split(".")[1].split(" ")[4])
+    )
+    melted = melted.iloc[:, 1:]
 
-
-    melted = melted.pivot_table(index=[melted.index, 'pid', 'tAhead'],
-                  columns=['field'],
-                  values=['value'])['value'].reset_index().set_index('Time')
+    melted = (
+        melted.pivot_table(
+            index=[melted.index, "pid", "tAhead"], columns=["field"], values=["value"]
+        )["value"]
+        .reset_index()
+        .set_index("Time")
+    )
 
     melted["customer"] = melted.pid.apply(lambda x: extra_info_customers[x])
-    melted["type"] = 'demand'
-    melted["quality"] = 'actual'
-
+    melted["type"] = "demand"
+    melted["quality"] = "actual"
 
     tag_columns = ["pid", "customer", "type", "tAhead"]
     field_columns = [x for x in melted.columns if x not in tag_columns]
@@ -76,19 +89,22 @@ def load_t_ahead_data(delta):
 
     return result
 
+
 def load_weather_data(delta):
-    data = pd.read_csv(Path("data/forecast_latest_weather.csv"), parse_dates=True, index_col=0)
+    data = pd.read_csv(
+        Path("data/forecast_latest_weather.csv"), parse_dates=True, index_col=0
+    )
 
     locations = ["Nijmegen", "Deelen", "Leeuwarden"]
 
-    data.index = data.index.shift(delta,freq=1)
+    data.index = data.index.shift(delta, freq=1)
 
     for location in locations:
 
-        data['input_city'] = location
-        data['source'] = 'harm_arome'
+        data["input_city"] = location
+        data["source"] = "harm_arome"
 
-        tag_columns = ['input_city', 'source']
+        tag_columns = ["input_city", "source"]
         field_columns = [x for x in data.columns if x not in tag_columns]
 
         result = _DataInterface.get_instance().exec_influx_write(
@@ -102,9 +118,7 @@ def load_weather_data(delta):
 
 
 if __name__ == "__main__":
-    config = ConfigManager.load_project_config(project_root=PROJECT_ROOT).get_instance()
-    _DataInterface(config)
+    _DataInterface(AppSettings())
     result, delta = load_load_data()
     load_t_ahead_data(delta)
     load_weather_data(delta)
-
