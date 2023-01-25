@@ -44,6 +44,18 @@ Log in using username `root` and password `root`
 
 Open on http://localhost:8090
 
+## Mlflow
+
+Open on http://localhost:8099
+
+## Running pipelines
+
+In the root of the project run:
+
+`pip install -r requirements.txt`
+
+Run a training or forecast pipeline by running the corresponding python files in `openstef_example_tasks` from the root of this repository.
+
 # Tips and tricks
 
 ## Enter running container
