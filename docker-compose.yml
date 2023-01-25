@@ -72,3 +72,17 @@ services:
     environment:
       - NGINX_HOST=foobar.com
       - NGINX_PORT=80
+  mlflow:
+    build: .
+    container_name: mlflow
+    volumes:
+      - ./nginx/volumes/config/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/volumes/data:/usr/share/nginx/html
+    ports:
+      - "8099:8099"
+    environment:
+      - MYSQL_USERNAME=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_HOST=mysql
+      - MYSQL_PORT=3306
+      - MYSQL_DATABASE=tst_icarus
