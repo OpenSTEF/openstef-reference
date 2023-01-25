@@ -6,7 +6,7 @@ INSERT INTO `systemsApiKeys` (`id`, `name`, `apiKey`) VALUES (199, 'Measurements
 
 INSERT INTO `systems` (`sid`, `origin`, `lat`, `lon`, `region`, `timezone`, `brand`, `freq`, `qual`, `lag`, `created`, `autoupdate`, `polarity`, `measurements_customer_api_key_id`) VALUES ('Location_C_System_1', 'ems', 5.8, 53.201, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, -1, 199), ('Location_C_System_2', 'ems', 5.8, 53.201, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, -1, 199), ('Location_A_System_1', 'ems', 5.837, 51.813, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:07', 1, 1, 199), ('Location_A_System_2', 'ems', 5.837, 51.813, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, 1, 199), ('Location_B_System_1', 'ems', 5.894, 52.067, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, -1, 199), ('Location_B_System_2', 'ems',  5.894, 52.067, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:12', 1, -1, 199);
 
-INSERT INTO `predictions` (`id`, `name`, `typ`, `model`, `created`, `active`, `horizon_minutes`, `resolution_minutes`, `train_components`,
+INSERT INTO `predictions` (`id`, `name`, `forecast_type`, `model`, `created`, `active`, `horizon_minutes`, `resolution_minutes`, `train_components`,
 `ean`) VALUES
 (459, 'Location_A', 'demand', 'xgb_quantile', '2019-05-16 14:55:34', 1, 2880, 15, b'1', '000000000000000002'), (321, 'Location_B', 'demand', 'xgb', '2019-05-16 14:56:15', 1, 2880, 15, b'1', '000000000000000001'), (317, 'Location_A', 'demand', 'xgb', '2019-05-16 14:55:34', 1, 2880, 15, b'1', '000000000000000002'), (313, 'Location_C', 'demand', 'xgb', '2019-05-16 14:53:38', 1, 2880, 15, b'1', '000000000000000003');
 
@@ -32,6 +32,7 @@ INSERT INTO `NameToLatLon` (`regionInput`, `lon`, `lat`) VALUES
 ('Nijmegen', '5.837', '51.813'),
 ('Deelen', '5.894', '52.067');
 
+INSERT INTO `weatherforecastlocations` (`created`, `input_city`, `lat`, `lon`, `country`, `active`) VALUES (CURRENT_TIMESTAMP, 'Deelen', '52.067', '5.894', 'NL', '1'),(CURRENT_TIMESTAMP, 'Nijmegen', '5.837', '51.813', 'NL', '1'),(CURRENT_TIMESTAMP, 'Leeuwarden', '5.800', '53.201','NL', '1');
 
 INSERT INTO `customers_predictions` (`customer_id`, `prediction_id`) VALUES
 (316, 321),

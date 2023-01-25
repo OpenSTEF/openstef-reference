@@ -139,7 +139,7 @@ CREATE TABLE `NameToLatLon` (
 CREATE TABLE `predictions` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `typ` varchar(10) NOT NULL DEFAULT 'default',
+  `forecast_type` varchar(10) NOT NULL DEFAULT 'default',
   `model` varchar(99) NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `active` int(11) NOT NULL DEFAULT '1' COMMENT '0 = off\n1 = on\n2 = automatic (between from en to)',
@@ -169,7 +169,8 @@ CREATE TABLE `predictions_quantile_sets` (
 
 CREATE TABLE `predictions_systems` (
   `prediction_id` int(11) NOT NULL,
-  `system_id` varchar(100) NOT NULL
+  `system_id` varchar(100) NOT NULL,
+  `factor` 	double NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -245,6 +246,20 @@ CREATE TABLE `todolist` (
   `function` varchar(200) NOT NULL,
   `args` varchar(200) NOT NULL,
   `inprogress` int(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `weatherforecastlocations`
+--
+
+CREATE TABLE `weatherforecastlocations` (
+  `created` datetime DEFAULT CURRENT_TIMESTAMP,
+  `input_city` varchar(25) NOT NULL,
+  `lat` double DEFAULT NULL,
+  `lon` double DEFAULT NULL,
+  `country` varchar(45) NOT NULL,
+  `active` int(11) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -323,7 +338,7 @@ ALTER TABLE `hyper_param_values`
 --
 ALTER TABLE `predictions`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `typ` (`typ`(1));
+  ADD KEY `forecast_type` (`forecast_type`(1));
 
 --
 -- Indexen voor tabel `predictions_quantile_sets`
@@ -504,6 +519,13 @@ ALTER TABLE `systems`
   ADD CONSTRAINT `fk_customer_api_key_id` FOREIGN KEY (`measurements_customer_api_key_id`) REFERENCES `systemsApiKeys` (`id`);
 
 --
+-- Indexes for table `weatherforecastlocations`
+--
+ALTER TABLE `weatherforecastlocations`
+  ADD PRIMARY KEY (`input_city`),
+  ADD KEY `country` (`country`);
+
+--
 -- Beperkingen voor tabel `windspecs`
 --
 ALTER TABLE `windspecs`
@@ -514,3 +536,8 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+--
+-- Create database for mlflow
+--
+CREATE DATABASE mlflow;
