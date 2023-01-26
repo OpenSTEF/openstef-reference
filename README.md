@@ -35,6 +35,10 @@ All line endings should be Unix!
 Open on http://localhost:3000
 Log in using username `admin` and password `admin`
 
+Possibly the mysql pasword (`root`) has to be set from withing the dashboard. Do this via Configuration > DataSources > tst_icarus (MySQL) > password.
+
+To view the dash board navigate to the dashboard: Dashboards > Station forecasts.
+
 ## PhpMyAdmin
 
 Open on http://localhost:8080
@@ -63,11 +67,11 @@ Run a training or forecast pipeline by running the corresponding python files in
 To enter the InfluxDB container run:
 
 ```shell
-$ sudo docker exec -it openstf-influxdb /bin/bash
+$ sudo docker exec -it openstef-influxdb /bin/bash
 ```
 
 ```shell
-$ sudo docker exec -it openstf-nginx /bin/bash
+$ sudo docker exec -it openstef-nginx /bin/bash
 ```
 
 ## Clear the volumes
