@@ -47,7 +47,7 @@ services:
       GRAFANA_USER: admin
       GRAFANA_PASSWORD: admin
   influx-configurator:
-    image: python:3.9-slim
+    image: python:3.10-slim
     container_name: openstef-influx-configurator
     depends_on:
       - "influxdb"
