@@ -1,6 +1,7 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 import pandas as pd
+import math
 
 from openstef_dbc.data_interface import _DataInterface
 from configuration import AppSettings
@@ -14,6 +15,8 @@ extra_info_customers = {
     459: "Location_A",
 }
 
+def round_dt(dt, delta=timedelta(minutes=15)):
+    return datetime.min + math.floor((dt - datetime.min) / delta) * delta
 
 def load_load_data() -> bool:
 
@@ -29,7 +32,7 @@ def load_load_data() -> bool:
 
     most_recent_date = load_data.index.max().to_pydatetime()
 
-    delta = datetime.utcnow() - most_recent_date
+    delta = round_dt(datetime.utcnow()) - round_dt(most_recent_date)
 
     load_data.index = load_data.index.shift(delta, freq=1)
 
