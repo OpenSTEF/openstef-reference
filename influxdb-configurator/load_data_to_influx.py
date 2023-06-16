@@ -5,6 +5,7 @@ import math
 
 from openstef_dbc.data_interface import _DataInterface
 from configuration import AppSettings
+from mock_inlfux_db_admin import MockInfluxDBAdmin
 
 PROJECT_ROOT = Path(__file__).parent.absolute()
 
@@ -121,6 +122,9 @@ def load_weather_data(delta):
 
 
 if __name__ == "__main__":
+    mock_influxdb_admin = MockInfluxDBAdmin(AppSettings())
+    # Reset to starting conditions
+    mock_influxdb_admin.reset_mock_influx_db()
     _DataInterface(AppSettings())
     result, delta = load_load_data()
     load_t_ahead_data(delta)

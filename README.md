@@ -35,7 +35,9 @@ All line endings should be Unix!
 Open on http://localhost:3000
 Log in using username `admin` and password `admin`
 
-Possibly the mysql pasword (`root`) has to be set from withing the dashboard. Do this via Configuration > DataSources > tst_icarus (MySQL) > password.
+Set the mysql pasword (`root`) from withing the dashboard. Do this via Configuration > DataSources > tst_icarus (MySQL) > password.
+
+Set the influx token pasword (`mytoken`) from withing the dashboard. Do this via Configuration > DataSources >  InfluxDB-V2 > token.
 
 To view the dash board navigate to the dashboard: Dashboards > Station forecasts.
 

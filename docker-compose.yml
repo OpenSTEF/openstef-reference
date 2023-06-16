@@ -1,16 +1,14 @@
 version: "3.7"
 services:
   influxdb:
-    image: influxdb:1.8.10-alpine
-    container_name: openstef-influxdb
+    image: influxdb:2.7.1-alpine
+    env_file:
+      - influxv2.env
     volumes:
-      - ./influxdb/volumes/initdb:/docker-entrypoint-initdb.d
-    environment:
-      INFLUXDB_FORECASTS_DB_NAME: forecast_latest
-      INFLUXDB_REALISED_DB_NAME: realised
-      INFLUXDB_HTTP_MAX_BODY_SIZE: 0
+      # Mount for influxdb data directory and configuration
+      - influxdbv2:/var/lib/influxdb2:rw
     ports:
-      - 8086:8086
+      - "8086:8086"
   mysql:
     image: mysql:5.7
     container_name: openstef-mysql
@@ -55,7 +53,7 @@ services:
       sh -c "apt-get update &&
       pip install --upgrade pip &&
       apt-get install -y make automake gcc g++ subversion python3-dev libblas3 liblapack3 liblapack-dev libblas-dev && 
-      pip install pandas==1.5.3 influxdb-client openstef-dbc==3.4.3 pydantic &&
+      pip install pandas==1.5.3 influxdb-client openstef-dbc==3.6.8a7 pydantic &&
       cd /opt/influxdb-configurator/ &&
       python load_data_to_influx.py
       "
@@ -87,3 +85,5 @@ services:
       - MYSQL_HOST=openstef-mysql
       - MYSQL_PORT=3306
       - MYSQL_DATABASE=mlflow
+volumes:
+  influxdbv2:
