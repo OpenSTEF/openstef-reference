@@ -56,13 +56,22 @@ class AppSettings(BaseSettings):
         "root", description="MySQL password."
     )
 
-    influxdb_host: str = Field("localhost", description="InfluxDB host.")
+    influxdb_host: str = Field("http://localhost", description="InfluxDB host.")
     influxdb_port: str = Field("8086", description="InfluxDB port.")
     influxdb_username: str = Field("admin", description="InfluxDB username."
     )
     influxdb_password: str = Field(
         "admin", description="InfluxDB password."
     )
+    
+    influx_organization: str = Field(
+        "myorg", description="InfluxDB organization."
+    )
+    influxdb_token: str = Field(
+        "mytoken", description="InfluxDB token."
+    )
+    
+    externally_posted_forecasts_pids: list = None
     
     proxies: Union[dict[str, str], None] = None
 
