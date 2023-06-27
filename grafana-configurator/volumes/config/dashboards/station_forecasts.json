@@ -3,17 +3,27 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
-        "limit": 100,
         "name": "Annotations & Alerts",
-        "showIn": 0,
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
         "type": "dashboard"
       },
       {
-        "datasource": "tst_icarus",
+        "datasource": {
+          "type": "mysql",
+          "uid": "000000005"
+        },
         "enable": true,
         "hide": false,
         "iconColor": "rgba(255, 96, 96, 1)",
@@ -27,517 +37,417 @@
     ]
   },
   "editable": true,
-  "gnetId": null,
+  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1622641261834,
   "links": [],
+  "liveNow": false,
   "panels": [
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "-- Mixed --",
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
       "description": "",
       "fieldConfig": {
-        "defaults": {},
-        "overrides": []
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Power [MW]",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": "Total"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#AD0317",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "quantile_P01 - prognose"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#B877D9",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "quantile_P25 - prognose"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "rgb(255, 0, 0)",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "quantile_P10 - prognose"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#8F3BB8",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "power output {type=\"measurement\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Total"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "quantile_P05"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-yellow",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "quantile_P10"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "quantile_P30"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "quantile_P50"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "quantile_P70"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "quantile_P90"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "quantile_P95"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Total"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
       },
-      "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 11,
         "x": 0,
         "y": 0
       },
-      "hiddenSeries": false,
       "id": 47,
       "interval": "15m",
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
       "links": [],
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
       },
-      "percentage": false,
-      "pluginVersion": "7.5.1",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
+      "pluginVersion": "9.4.3",
       "repeat": "Customer",
       "repeatDirection": "v",
-      "seriesOverrides": [
-        {
-          "alias": "/.*Totaal/",
-          "color": "#052b51",
-          "fill": 0,
-          "linewidth": 2
-        },
-        {
-          "alias": "/basecase/",
-          "dashLength": 1,
-          "dashes": true,
-          "legend": false,
-          "linewidth": 1,
-          "spaceLength": 1
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
       "targets": [
         {
-          "alias": "$description - prognose",
-          "datasource": "forecast_latest",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "description"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vowSQsa4z"
+          },
           "hide": false,
-          "measurement": "prediction",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT mean(\"forecast\") FROM \"prediction\" WHERE (\"pid\" =~ /^$Pid$/ AND \"time\" > now() AND \"type\" != 'est_demand' AND \"type\" != 'est_pv' AND \"type\" != 'est_wind' and \"quality\" = 'actual') AND $timeFilter GROUP BY time($__interval), \"description\" fill(null)",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "forecast"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "description",
-              "operator": "=~",
-              "value": "/^$Predictions$/"
-            },
-            {
-              "condition": "AND",
-              "key": "time",
-              "operator": ">",
-              "value": "now()"
-            }
-          ]
+          "query": "from(bucket: \"forecast_latest/autogen\")\r\n  |> range(start: now(), stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"prediction\")\r\n  |> filter(fn: (r) => r.pid == ${Pid:json})\r\n  |> filter(fn: (r) => r[\"_field\"] =~ /quantile_P/ or r[\"_field\"] == \"forecast\")\r\n  |> aggregateWindow(every: 15m, fn: mean, createEmpty: true)\r\n  |> keep(columns: [\"_time\", \"_field\", \"_value\"])",
+          "refId": "Forecasts"
         },
         {
-          "alias": "Totaal - prognose",
-          "datasource": "forecast_latest",
-          "groupBy": [
+          "alias": "",
+          "bucketAggs": [
             {
-              "params": [
-                "15m"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "measurement": "prediction",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT SUM(mean_forecast) FROM (SELECT mean(\"forecast\") as mean_forecast FROM \"prediction\" WHERE (\"pid\" =~ /^$Pid$/ AND \"time\" > now()AND \"type\" != 'est_demand' AND \"type\" != 'est_pv' AND \"type\" != 'est_wind' and \"quality\" = 'actual') AND $timeFilter GROUP BY time($__interval)) WHERE $timeFilter GROUP BY time($__interval) fill(null)",
-          "rawQuery": true,
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "forecast"
-                ],
-                "type": "field"
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
               },
-              {
-                "params": [],
-                "type": "sum"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "description",
-              "operator": "=~",
-              "value": "/^$DetailSys$/"
-            },
-            {
-              "condition": "AND",
-              "key": "time",
-              "operator": ">",
-              "value": "now()"
-            }
-          ]
-        },
-        {
-          "alias": "Totaal - realisatie",
-          "datasource": "realised",
-          "groupBy": [
-            {
-              "params": [
-                "15m"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "linear"
-              ],
-              "type": "fill"
+              "type": "date_histogram"
             }
           ],
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vowSQsa4z"
+          },
           "hide": false,
-          "measurement": "power",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT SUM(mean_output) FROM \n    (SELECT mean(\"output\") as mean_output FROM \"power\" WHERE (\"system\" =~ /^($Systems)$/ and \"system\" !~ /^$PolarityFlippedSystems$/) AND $timeFilter GROUP BY time($__interval), \"system\") ,\n    (SELECT mean(\"output\")*-1 as mean_output FROM \"power\" WHERE (\"system\" =~ /^($Systems)$/ and \"system\" =~ /^$PolarityFlippedSystems$/) AND $timeFilter GROUP BY time($__interval), \"system\")\nWHERE $timeFilter GROUP BY time($__interval) fill(null)",
-          "rawQuery": true,
-          "refId": "D",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "output"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
+          "metrics": [
             {
-              "key": "system",
-              "operator": "=~",
-              "value": "/^$DetailSys$/"
-            }
-          ]
-        },
-        {
-          "alias": "$tag_description - prognose (basecase)",
-          "datasource": "forecast_latest",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "description"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
+              "id": "1",
+              "type": "count"
             }
           ],
-          "hide": false,
-          "measurement": "prediction",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT mean(\"forecast\") FROM \"prediction\" WHERE (\"pid\" =~ /^$Pid$/ AND \"time\" > now() AND \"type\" != 'est_demand' AND \"type\" != 'est_pv' AND \"type\" != 'est_wind' and \"quality\" != 'actual') AND $timeFilter AND time>now()+2d GROUP BY time($__interval), \"description\" fill(null)",
-          "rawQuery": true,
-          "refId": "F",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "forecast"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "description",
-              "operator": "=~",
-              "value": "/^$Predictions$/"
-            },
-            {
-              "condition": "AND",
-              "key": "time",
-              "operator": ">",
-              "value": "now()"
-            }
-          ]
-        },
-        {
-          "alias": "Totaal - prognose (basecase)",
-          "datasource": "forecast_latest",
-          "groupBy": [
-            {
-              "params": [
-                "15m"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "measurement": "prediction",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT SUM(mean_forecast) FROM (SELECT mean(\"forecast\") as mean_forecast FROM \"prediction\" WHERE (\"pid\" =~ /^$Pid$/ AND \"time\" > now()AND \"type\" != 'est_demand' AND \"type\" != 'est_pv' AND \"type\" != 'est_wind' and \"quality\" != 'actual') AND $timeFilter GROUP BY time($__interval), description) WHERE $timeFilter AND time>now()+2d GROUP BY time($__interval) fill(null)",
-          "rawQuery": true,
-          "refId": "G",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "forecast"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "sum"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "description",
-              "operator": "=~",
-              "value": "/^$DetailSys$/"
-            },
-            {
-              "condition": "AND",
-              "key": "time",
-              "operator": ">",
-              "value": "now()"
-            }
-          ]
-        },
-        {
-          "alias": "$tag_system*-1 - realisatie",
-          "datasource": "realised",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "system"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "measurement": "power",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT mean(\"output\")*-1 FROM \"power\" WHERE (\"system\" =~ /^($Systems)$/ and \"system\" =~ /^$PolarityFlippedSystems$/) AND $timeFilter GROUP BY time($__interval), \"system\" fill(null)",
-          "rawQuery": true,
-          "refId": "E",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "output"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "system",
-              "operator": "=~",
-              "value": "/^$DetailSys$/"
-            }
-          ]
-        },
-        {
-          "alias": "$tag_system - realisatie",
-          "datasource": "realised",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "system"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "measurement": "power",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT mean(\"output\") FROM \"power\" WHERE (\"system\" =~ /^($Systems)$/ and \"system\" !~ /^$PolarityFlippedSystems$/) AND $timeFilter GROUP BY time($__interval), \"system\" fill(null)",
-          "rawQuery": true,
-          "refId": "C",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "output"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "system",
-              "operator": "=~",
-              "value": "/^$DetailSys$/"
-            }
-          ]
+          "query": "positive_systems = from(bucket: \"realised/autogen\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r._measurement == \"power\")\r\n|> filter(fn: (r) => r[\"system\"] =~ /^${Systems:regex}$/ and r[\"system\"] !~ /^${PolarityFactorFlippedSystems:regex}$/)\r\n|> filter(fn: (r) => r._field == \"output\")\r\n|> aggregateWindow(every: 15m, fn: mean, createEmpty: false, timeSrc: \"_stop\")\r\n\r\n// Define helper function for multiplication\r\nmultiplyByX = (x, tables=<-) => tables\r\n    |> map(fn: (r) => ({r with _value: r._value * x}))\r\n\r\nnegative_systems = from(bucket: \"realised/autogen\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r._measurement == \"power\")\r\n|> filter(fn: (r) => r[\"system\"] =~ /^${PolarityFactorFlippedSystems:regex}$/)\r\n|> filter(fn: (r) => r._field == \"output\")\r\n|> aggregateWindow(every: 15m, fn: mean, createEmpty: true, timeSrc: \"_stop\")\r\ninverted_negative_systems = negative_systems |> multiplyByX(x: -1.0)  \r\n\r\n// Calculate total\r\ncombined = \r\nunion(tables: [inverted_negative_systems, positive_systems]) \r\n|> drop(columns: [\"system\"]) \r\n|> aggregateWindow(every: 15m, fn: sum, createEmpty: true, timeSrc: \"_start\") \r\n\r\n// Combine and show results\r\nunion(tables: [inverted_negative_systems, positive_systems, combined]) \r\n|> keep(columns: [\"_time\", \"_field\", \"_value\", \"system\"])\r\n",
+          "refId": "Load",
+          "timeField": "@timestamp"
         }
       ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
       "title": "Total Load - $Prediction_name (pid: $Pid)",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
+      "transformations": [
         {
-          "format": "short",
-          "label": "Power [MW]",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
+          "id": "joinByField",
+          "options": {
+            "byField": "Time",
+            "mode": "outer"
+          }
         },
         {
-          "format": "watt",
-          "label": null,
-          "logBase": 1,
-          "max": "10000000",
-          "min": "-10000000",
-          "show": false
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "output": "Realised",
+              "output 1": "Total"
+            }
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "output (.*)",
+            "renamePattern": "$1"
+          }
         }
       ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "type": "timeseries"
     },
     {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "datasource": "realised",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vowSQsa4z"
       },
-      "format": "dateTimeFromNow",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "dateTimeFromNow"
+        },
+        "overrides": []
       },
       "gridPos": {
         "h": 2,
@@ -546,42 +456,30 @@
         "y": 0
       },
       "id": 59,
-      "interval": null,
       "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
       "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "max"
+          ],
+          "fields": "/^shifted created$/",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
       },
-      "tableColumn": "",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vowSQsa4z"
+          },
           "groupBy": [
             {
               "params": [
@@ -599,6 +497,8 @@
           "measurement": "power",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "from(bucket: \"realised/autogen\")\r\n|> range(start: v.timeRangeStart)\r\n|> filter(fn: (r) => r._measurement == \"power\")\r\n|> filter(fn: (r) => r.system =~ /^${Systems:regex}$/)\r\n|> filter(fn: (r) => r._field == \"created\") \r\n|> max()\r\n|> group()\r\n",
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -630,26 +530,33 @@
           ]
         }
       ],
-      "thresholds": "",
       "title": "Last measurement",
-      "type": "singlestat",
-      "valueFontSize": "50%",
-      "valueMaps": [
+      "transformations": [
         {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
+          "id": "calculateField",
+          "options": {
+            "alias": "shifted created",
+            "binary": {
+              "left": "_value",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "1000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
         }
       ],
-      "valueName": "max"
+      "type": "stat"
     },
     {
-      "datasource": null,
-      "description": "Location of the station, determined by the coordinates of one of the systems.\n",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "000000020"
       },
+      "description": "Location of the station, determined by the coordinates of one of the systems.",
       "gridPos": {
         "h": 8,
         "w": 9,
@@ -659,35 +566,66 @@
       "id": 86,
       "links": [],
       "options": {
-        "content": "<div class=\"mapouter\">\n  <div class=\"gmap_canvas\">\n    <iframe width=\"600\" height=\"275\" id=\"gmap_canvas\" src=\"https://maps.google.com/maps?q=$lat%20$lon&t=&z=9&ie=UTF8&iwloc=&output=embed\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>\n  </div>\n  <style>\n    .mapouter {\n      position: relative;\n      text-align: right;\n      height: 300px;\n      width: 600px;\n      \n    }\n    .gmap_canvas {\n      overflow:hidden;\n      background: none!important;\n      height: 300px;\n      width: 600px;\n      \n    }\n  </style>\n</div>",
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<div class=\"mapouter\">\n  <div class=\"gmap_canvas\">\n    <iframe width=\"600\" height=\"275\" id=\"gmap_canvas\" src=\"https://maps.google.com/maps?q=$lat%20$lon&t=&z=9&ie=UTF8&iwloc=&output=embed\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>\n  </div>\n  <style>\n    .mapouter {\n      position: relative;\n      text-align: right;\n      height: 300px;\n      width: 600px;\n    }\n    .gmap_canvas {\n      overflow: hidden;\n      background: none !important;\n      height: 300px;\n      width: 600px;\n    }\n  </style>\n</div>",
         "mode": "html"
       },
-      "pluginVersion": "7.5.1",
+      "pluginVersion": "9.5.1",
       "repeatDirection": "v",
+      "targets": [
+        {
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "000000020"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Location $lat, $lon - $Prediction_name (pid: $Pid)",
       "type": "text"
     },
     {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "datasource": "forecast_latest",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vowSQsa4z"
       },
-      "format": "dateTimeFromNow",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "dateTimeFromNow"
+        },
+        "overrides": []
       },
       "gridPos": {
         "h": 2,
@@ -696,48 +634,38 @@
         "y": 2
       },
       "id": 22,
-      "interval": null,
       "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
       "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "max"
+          ],
+          "fields": "/^Time$/",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.5.1",
       "repeat": "Predictions",
       "repeatDirection": "v",
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
-      },
-      "tableColumn": "",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vowSQsa4z"
+          },
           "groupBy": [],
           "measurement": "prediction",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "\r\nfrom(bucket: \"forecast_latest/autogen\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r._measurement == \"prediction\")\r\n|> filter(fn: (r) => r[\"pid\"] == ${Pid:json})\r\n|> filter(fn: (r) => r._field == \"created\") \r\n|> filter(fn: (r) => r.type != \"est_demand\" and  r.type != \"est_wind\" and  r.type != \"est_pv\")\r\n",
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -765,40 +693,67 @@
           ]
         }
       ],
-      "thresholds": "",
-      "title": "Prediction available till",
-      "type": "singlestat",
-      "valueFontSize": "50%",
-      "valueMaps": [
+      "title": "Forecast available till",
+      "transformations": [
         {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
+          "id": "calculateField",
+          "options": {
+            "alias": "shifted_created",
+            "binary": {
+              "left": "Time",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "1000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "include": [
+                "created {customer=\"Wolvega\", pid=\"330\", type=\"demand\"}"
+              ],
+              "reducer": "max"
+            }
+          }
         }
       ],
-      "valueName": "last_time"
+      "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "datasource": "forecast_latest",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vowSQsa4z"
       },
-      "format": "dateTimeFromNow",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "dateTimeFromNow"
+        },
+        "overrides": []
       },
       "gridPos": {
         "h": 2,
@@ -807,44 +762,32 @@
         "y": 4
       },
       "id": 20,
-      "interval": null,
       "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
       "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "80%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "max"
+          ],
+          "fields": "/^created\\*1000$/",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.5.1",
       "repeat": "Predictions",
       "repeatDirection": "v",
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
-      },
-      "tableColumn": "",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vowSQsa4z"
+          },
           "groupBy": [
             {
               "params": [
@@ -862,6 +805,7 @@
           "measurement": "prediction",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "\r\nfrom(bucket: \"forecast_latest/autogen\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r._measurement == \"prediction\")\r\n|> filter(fn: (r) => r[\"pid\"] == ${Pid:json})\r\n|> filter(fn: (r) => r._field == \"created\") \r\n|> filter(fn: (r) => r.type != \"est_demand\" and  r.type != \"est_wind\" and  r.type != \"est_pv\")\r\n|> keep(columns: [\"_value\"])\r\n|> max()\r\n|> yield(name: \"max created\")",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -893,40 +837,65 @@
           ]
         }
       ],
-      "thresholds": "",
       "title": "Last update",
-      "type": "singlestat",
-      "valueFontSize": "50%",
-      "valueMaps": [
+      "transformations": [
         {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
+          "id": "calculateField",
+          "options": {
+            "alias": "created*1000",
+            "binary": {
+              "left": "_value",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "1000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
         }
       ],
-      "valueName": "max"
+      "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "datasource": "forecast_latest",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vowSQsa4z"
       },
-      "format": "dateTimeFromNow",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "string"
+        },
+        "overrides": []
       },
       "gridPos": {
         "h": 2,
@@ -934,271 +903,32 @@
         "x": 11,
         "y": 6
       },
-      "id": 92,
-      "interval": null,
+      "id": 100,
       "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
       "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
-      },
-      "tableColumn": "",
-      "targets": [
-        {
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "prediction",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "forecast"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "pid",
-              "operator": "=~",
-              "value": "/^$Pid$/"
-            }
-          ]
-        }
-      ],
-      "thresholds": "",
-      "title": "Prediction available till",
-      "type": "singlestat",
-      "valueFontSize": "50%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "last_time"
-    },
-    {
-      "aliasColors": {
-        "1.0 Hours Ahead": "#3f6833",
-        "24.0 Hours Ahead": "#9ac48a",
-        "4.0 Hours Ahead": "#629e51",
-        "47.0 Hours Ahead": "#b7dbab",
-        "8.0 Hours Ahead": "#7eb26d",
-        "Confidence": "#eab839",
-        "Confidence_24h": "#eab839",
-        "Confidence_hist": "#eab839",
-        "Forecast": "#ef843c",
-        "Realised": "#bf1b00"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "-- Mixed --",
-      "description": "Forecast and Confidence. Confidences in the past are of $SpecifcTAhead",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
-      "fill": 0,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 8,
-        "w": 11,
-        "x": 0,
-        "y": 8
-      },
-      "hiddenSeries": false,
-      "id": 28,
-      "interval": "15m",
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "maxDataPoints": 8000,
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "uniqueValues"
+          ],
+          "fields": "/^_value$/",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
       },
-      "percentage": false,
-      "pluginVersion": "7.5.1",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "repeat": "Predictions",
+      "pluginVersion": "9.5.1",
       "repeatDirection": "v",
-      "seriesOverrides": [
-        {
-          "alias": "Confidence",
-          "fillBelowTo": "Lower bound",
-          "lines": false
-        },
-        {
-          "alias": "Lower bound",
-          "legend": false
-        },
-        {
-          "alias": "Lower bound",
-          "lines": false
-        },
-        {
-          "alias": "Lowerbound_hist",
-          "legend": false,
-          "lines": false
-        },
-        {
-          "alias": "Confidence_hist",
-          "fillBelowTo": "Lowerbound_hist",
-          "legend": false,
-          "lines": false
-        },
-        {
-          "alias": "Lowerbound_hist",
-          "lines": false
-        },
-        {
-          "alias": "/Realised*/",
-          "color": "#AD0317"
-        },
-        {
-          "alias": "Realised - Total",
-          "dashLength": 1,
-          "dashes": true,
-          "spaceLength": 1
-        },
-        {
-          "alias": "144.0 Hours Ahead",
-          "dashLength": 2,
-          "dashes": true
-        },
-        {
-          "alias": "50.0 Hours Ahead",
-          "dashLength": 2,
-          "dashes": true
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
       "targets": [
         {
-          "alias": "Realised - Total",
-          "datasource": "realised",
-          "groupBy": [
-            {
-              "params": [
-                "5m"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "measurement": "power",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT SUM(mean_output) FROM \n    (SELECT mean(\"output\") as mean_output FROM \"power\" WHERE (\"system\" =~ /^$Systems$/ and \"system\" !~ /^$PolarityFlippedSystems$/ ) AND $timeFilter GROUP BY time($__interval), \"system\") ,\n    (SELECT mean(\"output\")*-1 as mean_output FROM \"power\" WHERE (\"system\" =~ /^$Systems$/ and \"system\" =~ /^$PolarityFlippedSystems$/) AND $timeFilter GROUP BY time($__interval), \"system\")\nWHERE $timeFilter GROUP BY time($__interval) fill(null)",
-          "rawQuery": true,
-          "refId": "E",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "output"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "sum"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "time",
-              "operator": "<",
-              "value": "now()"
-            },
-            {
-              "condition": "AND",
-              "key": "system",
-              "operator": "=~",
-              "value": "/^$DetailSys$/"
-            },
-            {
-              "condition": "AND",
-              "key": "system",
-              "operator": "<>",
-              "value": "Wls-RS_V104"
-            }
-          ]
-        },
-        {
-          "alias": "$tag_tAhead Hours Ahead",
-          "datasource": "forecast_latest",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vowSQsa4z"
+          },
           "groupBy": [
             {
               "params": [
@@ -1209,232 +939,6 @@
             {
               "params": [
                 "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT mean(\"forecast\") FROM \"prediction_tAheads\" WHERE (\"pid\" =~ /^$Pid$/ AND \"type\" != 'est_demand' AND \"type\" != 'est_pv' AND \"type\" != 'est_wind') AND $timeFilter GROUP BY time($__interval), \"tAhead\" fill(null)",
-          "rawQuery": true,
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "$col",
-          "datasource": "forecast_latest",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT mean(\"forecast\") + $Sigma * mean(\"stdev\") AS \"Confidence\", mean(\"forecast\") - $Sigma * mean(\"stdev\") AS \"Lower bound\", mean(\"forecast\") as \"Latest Forecast\" FROM \"prediction\" WHERE (\"pid\" =~ /^$Pid$/ AND time > now() AND \"type\" != 'est_demand' AND \"type\" != 'est_pv' AND \"type\" != 'est_wind' AND $timeFilter) GROUP BY time($__interval) fill(null)",
-          "rawQuery": true,
-          "refId": "C",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "$col",
-          "datasource": "forecast_latest",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT mean(\"forecast\")+ $Sigma * mean(\"stdev\") as \"Confidence_hist\", mean(\"forecast\") -  $Sigma * mean(\"stdev\") as \"Lowerbound_hist\" FROM \"prediction_tAheads\" WHERE (\"pid\" =~ /^$Pid$/ AND \"type\" != 'est_demand' AND \"type\" != 'est_pv' AND \"type\" != 'est_wind' ) AND $timeFilter AND time < NOW() AND \"tAhead\" =~ /^$SpecifcTAhead$/ GROUP BY time($__interval), \"tAhead\" fill(null)",
-          "rawQuery": true,
-          "refId": "D",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Forecast and Realised - $Prediction_name (pid: $Pid)",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": null,
-          "format": "short",
-          "label": "Power [MW]",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "datasource": "forecast_latest",
-      "description": "Actual - all data for an accurate forecast is present\nCalculated - not all input data was available; a conservative forecast is delivered\nNot_renewed - A major exception occured; the forecast is based on the load of one week earlier",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
-      "format": "none",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 2,
-        "w": 4,
-        "x": 11,
-        "y": 8
-      },
-      "id": 105,
-      "interval": "",
-      "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
-      },
-      "tableColumn": "",
-      "targets": [
-        {
-          "groupBy": [
-            {
-              "params": [
-                "1d"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "none"
               ],
               "type": "fill"
             }
@@ -1442,6 +946,8 @@
           "measurement": "prediction",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "from(bucket: \"forecast_latest/autogen\")\r\n|> range(start: 24h, stop: 26h)\r\n|> filter(fn: (r) => r._measurement == \"prediction\")\r\n|> filter(fn: (r) => r[\"pid\"] == ${Pid:json})\r\n|> filter(fn: (r) => r._field == \"quality\")\r\n|> keep(columns: [\"_value\"])",
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1463,116 +969,497 @@
               "key": "pid",
               "operator": "=~",
               "value": "/^$Pid$/"
-            },
-            {
-              "condition": "AND",
-              "key": "type",
-              "operator": "!~",
-              "value": "/est_*/"
             }
           ]
         }
       ],
-      "thresholds": "",
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Forecast quality",
-      "type": "singlestat",
-      "valueFontSize": "50%",
-      "valueMaps": [],
-      "valueName": "current"
+      "title": "Forecast quality @24h ahead",
+      "type": "stat"
     },
     {
-      "datasource": null,
-      "description": "Relatieve gewichten van het getrainde model. Het oppervlak geeft de *gain* aan, de kleur de _occurence_",
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "description": "Forecast of P50 at all tAheads",
       "fieldConfig": {
-        "defaults": {},
-        "overrides": []
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Power [MW]",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "1.0 Hours Ahead"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#3f6833",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "24.0 Hours Ahead"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#9ac48a",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "4.0 Hours Ahead"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#629e51",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "47.0 Hours Ahead"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#b7dbab",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "8.0 Hours Ahead"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#7eb26d",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Confidence"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#eab839",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Confidence_24h"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#eab839",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Confidence_hist"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#eab839",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Forecast"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#ef843c",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Realised"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#bf1b00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Confidence"
+            },
+            "properties": [
+              {
+                "id": "custom.fillBelowTo",
+                "value": "Lower bound"
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Lower bound"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Lowerbound_hist"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Confidence_hist"
+            },
+            "properties": [
+              {
+                "id": "custom.fillBelowTo",
+                "value": "Lowerbound_hist"
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Lowerbound_hist"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": "/Realised*/"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#AD0317",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Realised - Total"
+            },
+            "properties": [
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    1,
+                    1
+                  ],
+                  "fill": "dash"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "50.0 Hours Ahead"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#b2deac",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "144.0 Hours Ahead"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#e3f2e3",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 8,
-        "w": 9,
-        "x": 15,
+        "w": 11,
+        "x": 0,
         "y": 8
       },
-      "id": 12,
+      "id": 108,
+      "interval": "15m",
       "links": [],
       "options": {
-        "content": "<iframe width=\"100%\" height=\"270\" id=\"gmap_canvas\" src=\"http://localhost:8090/trained_models/$Pid/weight_plot.html\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
-        "mode": "html"
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
       },
-      "pluginVersion": "7.5.1",
-      "repeat": "Predictions",
+      "pluginVersion": "9.4.3",
       "repeatDirection": "v",
-      "title": "Feature importance - $Prediction_name (pid: $Pid)",
-      "type": "text"
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vowSQsa4z"
+          },
+          "hide": false,
+          "query": "positive_systems = from(bucket: \"realised/autogen\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r._measurement == \"power\")\r\n|> filter(fn: (r) => r[\"system\"] =~ /^${Systems:regex}$/ and r[\"system\"] !~ /^${PolarityFactorFlippedSystems:regex}$/)\r\n|> filter(fn: (r) => r._field == \"output\")\r\n|> aggregateWindow(every: 15m, fn: mean, createEmpty: true, timeSrc: \"_stop\")\r\n// Define helper function for multiplication\r\nmultiplyByX = (x, tables=<-) => tables\r\n    |> map(fn: (r) => ({r with _value: r._value * x}))\r\nnegative_systems = from(bucket: \"realised/autogen\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r._measurement == \"power\")\r\n|> filter(fn: (r) => r[\"system\"] =~ /^${PolarityFactorFlippedSystems:regex}$/)\r\n|> filter(fn: (r) => r._field == \"output\")\r\n|> aggregateWindow(every: 15m, fn: mean, createEmpty: true, timeSrc: \"_stop\")\r\ninverted_negative_systems = negative_systems |> multiplyByX(x: -1.0)  \r\n// Calculate total\r\ncombined = \r\nunion(tables: [inverted_negative_systems, positive_systems]) \r\n|> drop(columns: [\"system\"]) \r\n|> aggregateWindow(every: 15m, fn: sum, createEmpty: true, timeSrc: \"_start\")\r\n// Show results\r\ncombined",
+          "refId": "Total Load"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vowSQsa4z"
+          },
+          "hide": false,
+          "query": "from(bucket: \"forecast_latest/autogen\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"prediction_tAheads\")\r\n  |> filter(fn: (r) => r[\"pid\"] == ${Pid:json})\r\n  |> filter(fn: (r) => r[\"_field\"] == \"quantile_P50\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: true)\r\n  |> keep(columns: [\"_time\", \"_field\",\"_value\",\"tAhead\"])",
+          "refId": "Predictions P50 all taheads"
+        }
+      ],
+      "title": "Realised and P50 at all tAheads - $Prediction_name (pid: $Pid)",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "Time",
+            "mode": "outer"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "output {name=\"power\", type=\"measurement\"}": "Realised",
+              "quantile_P50 {tAhead=\"0.0\"}": "0.0 Hours Ahead",
+              "quantile_P50 {tAhead=\"1.0\"}": "1.0 Hours Ahead",
+              "quantile_P50 {tAhead=\"144.0\"}": "144.0 Hours Ahead",
+              "quantile_P50 {tAhead=\"24.0\"}": "24.0 Hours Ahead",
+              "quantile_P50 {tAhead=\"4.0\"}": "4.0 Hours Ahead",
+              "quantile_P50 {tAhead=\"47.0\"}": "47.0 Hours Ahead",
+              "quantile_P50 {tAhead=\"50.0\"}": "50.0 Hours Ahead",
+              "quantile_P50 {tAhead=\"8.0\"}": "8.0 Hours Ahead"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
     },
     {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "datasource": "tst_icarus",
+      "datasource": {
+        "type": "mysql",
+        "uid": "000000005"
+      },
       "description": "If the prediction is used for TenneT, an EAN is included. Otherwise (usually) not.",
       "fieldConfig": {
-        "defaults": {},
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "string"
+        },
         "overrides": []
-      },
-      "format": "none",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
       },
       "gridPos": {
         "h": 2,
         "w": 4,
         "x": 11,
-        "y": 10
+        "y": 8
       },
-      "id": 104,
-      "interval": null,
+      "id": 105,
       "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
       "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "first"
+          ],
+          "fields": "/^ean$/",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
       },
-      "tableColumn": "",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
+          "datasource": {
+            "type": "mysql",
+            "uid": "000000005"
+          },
           "format": "table",
           "group": [],
           "metricColumn": "none",
@@ -1606,444 +1493,167 @@
           ]
         }
       ],
-      "thresholds": "",
-      "timeFrom": null,
-      "timeShift": null,
       "title": "EAN (if any)",
-      "type": "singlestat",
-      "valueFontSize": "50%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "first"
+      "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "datasource": "tst_icarus",
-      "description": "",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "000000020"
       },
-      "format": "none",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
+      "description": "Relatieve gewichten van het getrainde model. Het oppervlak geeft de *gain* aan, de kleur de _occurence_",
       "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 11,
-        "y": 12
+        "h": 8,
+        "w": 9,
+        "x": 15,
+        "y": 8
       },
-      "id": 106,
-      "interval": null,
+      "id": 12,
       "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
         },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
+        "content": "<iframe width=\"100%\" height=\"270\" id=\"gmap_canvas\" src=\"https://acc-dashboard.icarus.energy/trained_models/$Pid/weight_plot.html\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
+        "mode": "html"
       },
-      "tableColumn": "",
+      "pluginVersion": "9.5.1",
+      "repeat": "Predictions",
+      "repeatDirection": "v",
       "targets": [
         {
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "000000020"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Feature importance - $Prediction_name (pid: $Pid)",
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "000000005"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 11,
+        "y": 10
+      },
+      "id": 101,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^api_key$/",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.5.1",
+      "repeatDirection": "v",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "000000005"
+          },
           "format": "table",
           "group": [],
-          "metricColumn": "apiKey",
+          "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  apiKey\nFROM customersApiKeys\nWHERE\n  name = '$Prediction_name'\nORDER BY apiKey",
+          "rawSql": "SELECT\n  api_key\nFROM customersApiKeys\nWHERE\n  cid = $cid",
           "refId": "A",
           "select": [
             [
               {
                 "params": [
-                  "apiKey"
+                  "cid"
                 ],
                 "type": "column"
               }
             ]
           ],
           "table": "customersApiKeys",
-          "timeColumn": "id",
-          "timeColumnType": "bigint",
+          "timeColumn": "cid",
+          "timeColumnType": "int",
           "where": [
             {
-              "datatype": "varchar",
-              "name": "",
-              "params": [
-                "name",
-                "=",
-                "'$Prediction_name'"
-              ],
-              "type": "expression"
-            }
-          ]
-        }
-      ],
-      "thresholds": "",
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "API key (if any)",
-      "type": "singlestat",
-      "valueFontSize": "50%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "first"
-    },
-    {
-      "datasource": null,
-      "description": "",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 8,
-        "x": 0,
-        "y": 16
-      },
-      "id": 97,
-      "links": [],
-      "options": {
-        "content": "<iframe width=\"100%\" height=\"300\" id=\"gmap_canvas\" src=\"http://localhost:8090/trained_models/$Pid/Predictor0.25.html\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
-        "mode": "html"
-      },
-      "pluginVersion": "7.5.1",
-      "repeatDirection": "v",
-      "title": "Predictor 15 min - $Prediction_name (pid: $Pid)",
-      "type": "text"
-    },
-    {
-      "datasource": null,
-      "description": "",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 7,
-        "x": 8,
-        "y": 16
-      },
-      "id": 98,
-      "links": [],
-      "options": {
-        "content": "<iframe width=\"100%\" height=\"300\" id=\"gmap_canvas\" src=\"http://localhost:8090/trained_models/$Pid/Predictor47.0.html\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
-        "mode": "html"
-      },
-      "pluginVersion": "7.5.1",
-      "repeatDirection": "v",
-      "title": "Predictor 47 hour - $Prediction_name (pid: $Pid)",
-      "type": "text"
-    },
-    {
-      "datasource": null,
-      "description": "",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 9,
-        "x": 15,
-        "y": 16
-      },
-      "id": 102,
-      "links": [],
-      "options": {
-        "content": "<script>\n$(function() {\n    $.ajax({\n        url: \"http://localhost:8090/trained_models/$Pid/capacity/capacity_prognoses.html\",\n        dataType: \"jsonp\",\n        timeout: 5000,\n\n        success: function () {\n            $(\"#iframe-capacity\").attr(\"src\", \"http://localhost:8090/trained_models/$Pid/capacity/capacity_prognoses.html\");\n        },\n        error: function (parsedjson) {\n            if(parsedjson.status == \"200\") {\n                $(\"#iframe-capacity\").attr(\"src\", \"http://localhost:8090/trained_models/$Pid/capacity/capacity_prognoses.html\");\n            } else {\n                $(\"#iframe-capacity\").attr(\"src\", \"http://localhost:8090/favicon.ico\");\n            }\n        }\n    });\n});\n</script>\n<iframe width=\"100%\" height=\"300\" id=\"iframe-capacity\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
-        "mode": "html"
-      },
-      "pluginVersion": "7.5.1",
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Capacity prognosis (if any) - $Prediction_name (pid: $Pid)",
-      "type": "text"
-    },
-    {
-      "columns": [],
-      "datasource": "tst_icarus",
-      "description": "Hyper parameters for the given prediction.",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
-      "fontSize": "100%",
-      "gridPos": {
-        "h": 9,
-        "w": 5,
-        "x": 0,
-        "y": 24
-      },
-      "id": 95,
-      "links": [
-        {
-          "url": "/"
-        }
-      ],
-      "maxPerRow": 3,
-      "pageSize": null,
-      "repeat": "Predictions",
-      "repeatDirection": "h",
-      "scroll": true,
-      "showHeader": true,
-      "sort": {
-        "col": 0,
-        "desc": true
-      },
-      "styles": [
-        {
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "created",
-          "thresholds": [],
-          "type": "date",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "decimals": 2,
-          "pattern": "/.*/",
-          "thresholds": [],
-          "type": "number",
-          "unit": "short"
-        }
-      ],
-      "targets": [
-        {
-          "format": "table",
-          "group": [],
-          "hide": false,
-          "metricColumn": "none",
-          "rawQuery": true,
-          "rawSql": "SELECT \n  hpv.created,\n  names.name, \n  hpv.value\nFROM hyper_param_values hpv \nINNER JOIN hyper_params names ON names.id = hpv.hyper_params_id \nINNER JOIN predictions p ON p.id = hpv.prediction_id\nWHERE p.id in ($Pid) AND hpv.created = (SELECT max(created) FROM hyper_param_values WHERE prediction_id = ($Pid))",
-          "refId": "A",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "column"
-              }
-            ]
-          ],
-          "timeColumn": "time",
-          "where": [
-            {
-              "name": "$__timeFilter",
+              "name": "$__unixEpochFilter",
               "params": [],
               "type": "macro"
             }
           ]
         }
       ],
-      "title": "Hyperparams - $Prediction_name (pid: $Pid)",
-      "transform": "table",
-      "type": "table-old"
+      "title": "API key (if any)",
+      "type": "stat"
     },
     {
-      "columns": [],
-      "datasource": "tst_icarus",
-      "description": "Overview of the energy split coefficients for the given prediction.",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
-      "fontSize": "100%",
-      "gridPos": {
-        "h": 9,
-        "w": 5,
-        "x": 5,
-        "y": 24
-      },
-      "id": 96,
-      "links": [
-        {
-          "url": "/"
-        }
-      ],
-      "maxPerRow": 3,
-      "pageSize": null,
-      "repeatDirection": "h",
-      "scroll": true,
-      "showHeader": true,
-      "sort": {
-        "col": 0,
-        "desc": true
-      },
-      "styles": [
-        {
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "created",
-          "thresholds": [],
-          "type": "date",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "coef_value",
-          "thresholds": [],
-          "type": "number",
-          "unit": "none"
-        }
-      ],
-      "targets": [
-        {
-          "format": "table",
-          "group": [],
-          "metricColumn": "coef_name",
-          "rawQuery": true,
-          "rawSql": "SELECT\n  created,\n  coef_name,\n  coef_value\nFROM energy_split_coefs\nWHERE\n  pid = $Pid AND created = (SELECT max(created) from energy_split_coefs WHERE pid =$Pid) ORDER BY coef_name DESC",
-          "refId": "B",
-          "select": [
-            [
-              {
-                "params": [
-                  "coef_value"
-                ],
-                "type": "column"
-              }
-            ]
-          ],
-          "table": "energy_split_coefs",
-          "timeColumn": "created",
-          "timeColumnType": "datetime",
-          "where": [
-            {
-              "datatype": "int",
-              "name": "",
-              "params": [
-                "pid",
-                "=",
-                "$Pid"
-              ],
-              "type": "expression"
-            }
-          ]
-        }
-      ],
-      "title": "Energy split coefficients - $Prediction_name (pid: $Pid)",
-      "transform": "table",
-      "type": "table-old"
-    },
-    {
-      "aliasColors": {
-        "1.0 Hours Ahead": "#3f6833",
-        "24.0 Hours Ahead": "#9ac48a",
-        "4.0 Hours Ahead": "#629e51",
-        "47.0 Hours Ahead": "#b7dbab",
-        "8.0 Hours Ahead": "#7eb26d",
-        "Confidence": "#eab839",
-        "Confidence_24h": "#eab839",
-        "Confidence_hist": "#eab839",
-        "Forecast": "#ef843c",
-        "Realised": "#bf1b00"
-      },
+      "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "-- Mixed --",
-      "description": "Split components for the given prediction. The forecast is the sum of all components.",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vowSQsa4z"
       },
-      "fill": 0,
+      "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 9,
-        "w": 5,
-        "x": 10,
-        "y": 24
+        "h": 10,
+        "w": 4,
+        "x": 11,
+        "y": 12
       },
       "hiddenSeries": false,
-      "id": 99,
-      "interval": "15m",
+      "id": 103,
       "legend": {
         "avg": false,
         "current": false,
@@ -2061,170 +1671,26 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.1",
-      "pointradius": 5,
+      "pluginVersion": "9.5.1",
+      "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeatDirection": "v",
-      "seriesOverrides": [
-        {
-          "alias": "Confidence",
-          "fillBelowTo": "Lower bound",
-          "lines": false
-        },
-        {
-          "alias": "Lower bound",
-          "legend": false
-        },
-        {
-          "alias": "Lower bound",
-          "lines": false
-        },
-        {
-          "alias": "Lowerbound_hist",
-          "legend": false,
-          "lines": false
-        },
-        {
-          "alias": "Confidence_hist",
-          "fillBelowTo": "Lowerbound_hist",
-          "legend": false,
-          "lines": false
-        },
-        {
-          "alias": "Lowerbound_hist",
-          "lines": false
-        },
-        {
-          "alias": "/Realised*/",
-          "color": "#AD0317"
-        },
-        {
-          "alias": "Realised - Total",
-          "dashLength": 1,
-          "dashes": true,
-          "spaceLength": 1
-        }
-      ],
+      "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
       "targets": [
         {
-          "alias": "$col",
-          "datasource": "forecast_latest",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "prediction",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "C",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "forecast"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [
-                  "forecast (net)"
-                ],
-                "type": "alias"
-              }
-            ],
-            [
-              {
-                "params": [
-                  "forecast_solar"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [
-                  "pv"
-                ],
-                "type": "alias"
-              }
-            ],
-            [
-              {
-                "params": [
-                  "forecast_wind_on_shore"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [
-                  "wind_on_shore"
-                ],
-                "type": "alias"
-              }
-            ],
-            [
-              {
-                "params": [
-                  "forecast_other"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [
-                  "other"
-                ],
-                "type": "alias"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "customer",
-              "operator": "=~",
-              "value": "/^$Prediction_name$/"
-            },
-            {
-              "condition": "AND",
-              "key": "pid",
-              "operator": "=~",
-              "value": "/^$Pid$/"
-            }
-          ]
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vowSQsa4z"
+          },
+          "query": "from(bucket: \"forecast_latest/autogen\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"prediction\")\r\n  |> filter(fn: (r) => r[\"pid\"] == ${Pid:json})\r\n  |> filter(fn: (r) => r[\"_field\"] =~ /forecast/)\r\n  |> yield(name: \"mean\")",
+          "refId": "A"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Split components - $Prediction_name (pid: $Pid)",
       "tooltip": {
         "shared": true,
@@ -2233,106 +1699,732 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
-          "decimals": null,
+          "$$hashKey": "object:45",
           "format": "short",
           "label": "Power [MW]",
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
+          "$$hashKey": "object:46",
           "format": "short",
-          "label": null,
+          "label": "",
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
-      "datasource": null,
-      "description": "",
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "description": "Forecast and Confidence. Confidences in the past are of $SpecificTAhead",
       "fieldConfig": {
-        "defaults": {},
-        "overrides": []
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Power [MW]",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Forecast"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#ef843c",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Realised"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#bf1b00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "quantile_P05"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "quantile_P95"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "quantile_P90"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "quantile_P70"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "quantile_P30"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "quantile_P10"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
-        "h": 9,
+        "h": 8,
+        "w": 11,
+        "x": 0,
+        "y": 16
+      },
+      "id": 28,
+      "interval": "15m",
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.4.3",
+      "repeat": "Predictions",
+      "repeatDirection": "v",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vowSQsa4z"
+          },
+          "hide": false,
+          "query": "positive_systems = from(bucket: \"realised/autogen\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r._measurement == \"power\")\r\n|> filter(fn: (r) => r[\"system\"] =~ /^${Systems:regex}$/ and r[\"system\"] !~ /^${PolarityFactorFlippedSystems:regex}$/)\r\n|> filter(fn: (r) => r._field == \"output\")\r\n|> aggregateWindow(every: 15m, fn: mean, createEmpty: true, timeSrc: \"_stop\")\r\n// Define helper function for multiplication\r\nmultiplyByX = (x, tables=<-) => tables\r\n    |> map(fn: (r) => ({r with _value: r._value * x}))\r\nnegative_systems = from(bucket: \"realised/autogen\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r._measurement == \"power\")\r\n|> filter(fn: (r) => r[\"system\"] =~ /^${PolarityFactorFlippedSystems:regex}$/)\r\n|> filter(fn: (r) => r._field == \"output\")\r\n|> aggregateWindow(every: 15m, fn: mean, createEmpty: true, timeSrc: \"_stop\")\r\ninverted_negative_systems = negative_systems |> multiplyByX(x: -1.0)  \r\n// Calculate total\r\ncombined = \r\nunion(tables: [inverted_negative_systems, positive_systems]) \r\n|> drop(columns: [\"system\"]) \r\n|> aggregateWindow(every: 15m, fn: sum, createEmpty: true, timeSrc: \"_start\")\r\n// Show results\r\ncombined |> keep(columns: [\"_time\", \"_field\", \"_value\"])",
+          "refId": "Total Load"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vowSQsa4z"
+          },
+          "hide": false,
+          "query": "from(bucket: \"forecast_latest/autogen\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"prediction_tAheads\")\r\n  |> filter(fn: (r) => r[\"pid\"] == ${Pid:json})\r\n  |> filter(fn: (r) => r[\"tAhead\"] == ${SpecifcTAhead:json})\r\n  |> filter(fn: (r) => r[\"_field\"] =~ /quantile_P/)\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: true)\r\n  |> keep(columns: [\"_time\", \"_field\", \"_value\"])",
+          "refId": "Forecast at specific tAhead"
+        }
+      ],
+      "title": "Quantiles: Forecast and Realised Specific tAhead - $Prediction_name (pid: $Pid)",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "Time",
+            "mode": "outer"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "output": "Realised",
+              "quantile_P50": "Forecast"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "000000020"
+      },
+      "description": "",
+      "gridPos": {
+        "h": 8,
+        "w": 9,
+        "x": 15,
+        "y": 16
+      },
+      "id": 98,
+      "links": [],
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<iframe width=\"100%\" height=\"300\" id=\"gmap_canvas\" src=\"https://dashboard.icarus.energy/trained_models/$Pid/Predictor47.0.html\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
+        "mode": "html"
+      },
+      "pluginVersion": "9.5.1",
+      "repeatDirection": "v",
+      "targets": [
+        {
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "000000020"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Predictor 47 hour - $Prediction_name (pid: $Pid)",
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "description": "Forecast and Confidence. Confidences in the past are of $SpecificTAhead",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Power [MW]",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "4.0 Hours Ahead"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#629e51",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "47.0 Hours Ahead"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#b7dbab",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Confidence"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#eab839",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Confidence_hist"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#eab839",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Forecast"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#ef843c",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Confidence"
+            },
+            "properties": [
+              {
+                "id": "custom.fillBelowTo",
+                "value": "Lower bound"
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Lower bound"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Confidence_hist"
+            },
+            "properties": [
+              {
+                "id": "custom.fillBelowTo",
+                "value": "Lowerbound_hist"
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "sigma_stdev"
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": true,
+                  "tooltip": true,
+                  "viz": true
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "stdev"
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": true,
+                  "tooltip": true,
+                  "viz": true
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "Total load"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Realised"
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    1,
+                    1
+                  ],
+                  "fill": "dash"
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 11,
+        "x": 0,
+        "y": 24
+      },
+      "id": 107,
+      "interval": "15m",
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.4.3",
+      "repeatDirection": "v",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vowSQsa4z"
+          },
+          "hide": false,
+          "query": "positive_systems = from(bucket: \"realised/autogen\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r._measurement == \"power\")\r\n|> filter(fn: (r) => r[\"system\"] =~ /^${Systems:regex}$/ and r[\"system\"] !~ /^${PolarityFactorFlippedSystems:regex}$/)\r\n|> filter(fn: (r) => r._field == \"output\")\r\n|> aggregateWindow(every: 15m, fn: mean, createEmpty: true, timeSrc: \"_stop\")\r\n// Define helper function for multiplication\r\nmultiplyByX = (x, tables=<-) => tables\r\n    |> map(fn: (r) => ({r with _value: r._value * x}))\r\nnegative_systems = from(bucket: \"realised/autogen\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r._measurement == \"power\")\r\n|> filter(fn: (r) => r[\"system\"] =~ /^${PolarityFactorFlippedSystems:regex}$/)\r\n|> filter(fn: (r) => r._field == \"output\")\r\n|> aggregateWindow(every: 15m, fn: mean, createEmpty: true, timeSrc: \"_stop\")\r\ninverted_negative_systems = negative_systems |> multiplyByX(x: -1.0)  \r\n// Calculate total\r\ncombined = \r\nunion(tables: [inverted_negative_systems, positive_systems]) \r\n|> drop(columns: [\"system\"]) \r\n|> aggregateWindow(every: 15m, fn: sum, createEmpty: true, timeSrc: \"_start\")\r\n// Show results\r\ncombined |> rename(columns: {\"_field\":\"Realised\"})\r\n",
+          "refId": "Total load"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vowSQsa4z"
+          },
+          "hide": false,
+          "query": "forecast = from(bucket: \"forecast_latest/autogen\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"prediction_tAheads\")\r\n  |> filter(fn: (r) => r.pid == ${Pid:json})\r\n  |> filter(fn: (r) => r[\"tAhead\"] == \"${SpecifcTAhead}\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"forecast\" or r[\"_field\"] == \"stdev\")\r\n  |> keep(columns: [\"_time\", \"_field\", \"_value\"])\r\n  |> aggregateWindow(every: 15m, fn: mean, createEmpty: true)\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> keep(columns: [\"_time\", \"forecast\", \"stdev\"]) |> rename(columns: {\"forecast\": \"Forecast\"})\r\n\r\n  forecast",
+          "refId": "F"
+        }
+      ],
+      "title": "StDev: Forecast and Realised Specific tAhead - $Prediction_name (pid: $Pid)",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "sigma_stdev",
+            "binary": {
+              "left": "stdev",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "${Sigma}"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Confidence",
+            "binary": {
+              "left": "Forecast",
+              "reducer": "sum",
+              "right": "sigma_stdev"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Lower bound",
+            "binary": {
+              "left": "Forecast",
+              "operator": "-",
+              "reducer": "sum",
+              "right": "sigma_stdev"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "000000020"
+      },
+      "description": "",
+      "gridPos": {
+        "h": 8,
         "w": 9,
         "x": 15,
         "y": 24
       },
-      "id": 100,
+      "id": 97,
       "links": [],
       "options": {
-        "content": "<script>\r\n$(function() {\r\n    $.ajax({\r\n        url: \"http://localhost:8090/trained_models/$Pid/stations_detection.html\",\r\n        dataType: \"jsonp\",\r\n        timeout: 5000,\r\n\r\n        success: function () {\r\n            $(\"#iframe\").attr(\"src\", \"http://localhost:8090/trained_models/$Pid/stations_detection.html\");\r\n        },\r\n        error: function (parsedjson) {\r\n            if(parsedjson.status == \"200\") {\r\n                $(\"#iframe\").attr(\"src\", \"http://localhost:8090/trained_models/$Pid/stations_detection.html\");\r\n            } else {\r\n                $(\"#iframe\").attr(\"src\", \"http://localhost:8090/favicon.ico\");\r\n            }\r\n        }\r\n    });\r\n});\r\n</script>\r\n<iframe width=\"100%\" height=\"300\" id=\"iframe\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<iframe width=\"100%\" height=\"300\" id=\"gmap_canvas\" src=\"https://dashboard.icarus.energy/trained_models/$Pid/Predictor0.25.html\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
         "mode": "html"
       },
-      "pluginVersion": "7.5.1",
+      "pluginVersion": "9.5.1",
       "repeatDirection": "v",
-      "title": "Flatliners (if any) - $Prediction_name (pid: $Pid)",
+      "targets": [
+        {
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "000000020"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Predictor 15 min - $Prediction_name (pid: $Pid)",
       "type": "text"
     }
   ],
-  "refresh": false,
-  "schemaVersion": 27,
+  "refresh": "",
+  "revision": 1,
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": [
       {
-        "allValue": null,
         "current": {
-          "selected": true,
-          "text": "Location_B",
-          "value": "Location_B"
+          "selected": false,
+          "text": "Wolvega",
+          "value": "Wolvega"
         },
-        "datasource": "tst_icarus",
-        "definition": "SELECT p.name from predictions p where p.active=1 and model='xgb'",
-        "description": null,
-        "error": null,
+        "datasource": {
+          "type": "mysql",
+          "uid": "000000005"
+        },
+        "definition": "SELECT p.name from predictions p where p.active=1",
         "hide": 0,
         "includeAll": false,
         "label": "Prediction",
         "multi": false,
         "name": "Prediction_name",
         "options": [],
-        "query": "SELECT p.name from predictions p where p.active=1 and model='xgb'",
+        "query": "SELECT p.name from predictions p where p.active=1",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
-        "sort": 5,
+        "sort": 0,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
       },
       {
-        "allValue": null,
         "current": {
           "selected": false,
-          "text": "317",
-          "value": "317"
+          "text": "330",
+          "value": "330"
         },
-        "datasource": "tst_icarus",
+        "datasource": {
+          "type": "mysql",
+          "uid": "000000005"
+        },
         "definition": "SELECT id from predictions where name in ('$Prediction_name')",
-        "description": null,
-        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "Pid",
@@ -2345,83 +2437,37 @@
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
       },
       {
-        "allValue": null,
-        "current": {
-          "isNone": true,
-          "selected": false,
-          "text": "None",
-          "value": ""
-        },
-        "datasource": "forecast_latest",
-        "definition": "SELECT \"description\" FROM \"prediction\" WHERE (\"pid\" =$Pid) AND time >= now() AND  time <= now()+15m",
-        "description": null,
-        "error": null,
-        "hide": 0,
-        "includeAll": false,
-        "label": null,
-        "multi": false,
-        "name": "description",
-        "options": [
-          {
-            "isNone": true,
-            "selected": true,
-            "text": "None",
-            "value": ""
-          }
-        ],
-        "query": "SELECT \"description\" FROM \"prediction\" WHERE (\"pid\" =$Pid) AND time >= now() AND  time <= now()+15m",
-        "refresh": 0,
-        "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
-        "tagValuesQuery": "",
-        "tags": [],
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
-      },
-      {
-        "allValue": null,
         "current": {
           "selected": false,
-          "text": "2",
-          "value": "2"
+          "text": "1",
+          "value": "1"
         },
-        "datasource": "tst_icarus",
+        "datasource": {
+          "type": "mysql",
+          "uid": "000000005"
+        },
         "definition": "",
-        "description": null,
-        "error": null,
         "hide": 2,
         "includeAll": false,
-        "label": null,
         "multi": false,
         "name": "Sigma",
-        "options": [
-          {
-            "selected": true,
-            "text": "2",
-            "value": "2"
-          }
-        ],
+        "options": [],
         "query": "select case $Confidence when 98 then 2 when 66 then 1 when 0 then 0 end as sigma",
-        "refresh": 0,
+        "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
       },
       {
-        "allValue": null,
         "current": {
           "selected": true,
           "text": [
@@ -2431,36 +2477,32 @@
             "$__all"
           ]
         },
-        "datasource": "tst_icarus",
-        "definition": "select s.sid from systems s left join predictions_systems ps on ps.system_id = s.sid left join  predictions p on ps.prediction_id = p.id where p.id='$Pid'",
-        "description": null,
-        "error": null,
+        "datasource": {
+          "type": "mysql",
+          "uid": "000000005"
+        },
+        "definition": "SELECT s.sid \nFROM systems s LEFT JOIN predictions_systems ps ON ps.system_id = s.sid LEFT JOIN predictions p on ps.prediction_id = p.id \nWHERE p.id='$Pid'",
         "hide": 0,
         "includeAll": true,
-        "label": null,
         "multi": true,
         "name": "Systems",
         "options": [],
-        "query": "select s.sid from systems s left join predictions_systems ps on ps.system_id = s.sid left join  predictions p on ps.prediction_id = p.id where p.id='$Pid'",
+        "query": "SELECT s.sid \nFROM systems s LEFT JOIN predictions_systems ps ON ps.system_id = s.sid LEFT JOIN predictions p on ps.prediction_id = p.id \nWHERE p.id='$Pid'",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
       },
       {
-        "allValue": null,
         "current": {
           "selected": true,
-          "text": "98",
-          "value": "98"
+          "text": "66",
+          "value": "66"
         },
-        "description": null,
-        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "Confidence [%]",
@@ -2473,12 +2515,12 @@
             "value": "0"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "66",
             "value": "66"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "98",
             "value": "98"
           }
@@ -2489,35 +2531,33 @@
         "type": "custom"
       },
       {
-        "allValue": null,
         "current": {
           "selected": false,
-          "text": "0.0",
-          "value": "0.0"
+          "text": "24.0",
+          "value": "24.0"
         },
-        "datasource": "forecast_latest",
-        "definition": "SHOW TAG VALUES FROM prediction_tAheads WITH key = tAhead where pid =~/$Pid/",
-        "description": null,
-        "error": null,
+        "datasource": {
+          "type": "influxdb",
+          "uid": "vowSQsa4z"
+        },
+        "definition": "from(bucket: \"forecast_latest/autogen\")\r\n|> range(start: v.timeRangeStart)\r\n|> filter(fn: (r) => r._measurement == \"prediction_tAheads\")\r\n|> filter(fn: (r) => r.pid == ${Pid:json})\r\n|> keyValues(keyColumns: [\"tAhead\"])\r\n|> group()\r\n|> keep(columns: [\"tAhead\"])\r\n|> distinct(column: \"tAhead\")",
         "hide": 0,
         "includeAll": false,
         "label": "SpecifcTAhead",
         "multi": false,
         "name": "SpecifcTAhead",
         "options": [],
-        "query": "SHOW TAG VALUES FROM prediction_tAheads WITH key = tAhead where pid =~/$Pid/",
-        "refresh": 1,
+        "query": "from(bucket: \"forecast_latest/autogen\")\r\n|> range(start: v.timeRangeStart)\r\n|> filter(fn: (r) => r._measurement == \"prediction_tAheads\")\r\n|> filter(fn: (r) => r.pid == ${Pid:json})\r\n|> keyValues(keyColumns: [\"tAhead\"])\r\n|> group()\r\n|> keep(columns: [\"tAhead\"])\r\n|> distinct(column: \"tAhead\")",
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
       },
       {
-        "allValue": null,
         "current": {
           "selected": true,
           "text": [
@@ -2527,41 +2567,39 @@
             "$__all"
           ]
         },
-        "datasource": "tst_icarus",
-        "definition": "SELECT sid from systems where polarity = -1 and sid in ($Systems)",
-        "description": null,
-        "error": null,
+        "datasource": {
+          "type": "mysql",
+          "uid": "000000005"
+        },
+        "definition": "SELECT s.sid \nFROM \n\tsystems AS s INNER JOIN predictions_systems AS ps ON ps.system_id = s.sid \nWHERE (s.polarity * ps.factor) < 0 and ps.prediction_id = $Pid",
         "hide": 0,
         "includeAll": true,
-        "label": null,
         "multi": true,
-        "name": "PolarityFlippedSystems",
+        "name": "PolarityFactorFlippedSystems",
         "options": [],
-        "query": "SELECT sid from systems where polarity = -1 and sid in ($Systems)",
+        "query": "SELECT s.sid \nFROM \n\tsystems AS s INNER JOIN predictions_systems AS ps ON ps.system_id = s.sid \nWHERE (s.polarity * ps.factor) < 0 and ps.prediction_id = $Pid",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
       },
       {
-        "allValue": null,
         "current": {
           "selected": false,
-          "text": "5.4768915",
-          "value": "5.4768915"
+          "text": "5.9722174",
+          "value": "5.9722174"
         },
-        "datasource": "tst_icarus",
+        "datasource": {
+          "type": "mysql",
+          "uid": "000000005"
+        },
         "definition": "SELECT max(lon) as lon FROM systems WHERE sid IN ($Systems)",
-        "description": null,
-        "error": null,
         "hide": 2,
         "includeAll": false,
-        "label": null,
         "multi": false,
         "name": "lon",
         "options": [],
@@ -2571,25 +2609,23 @@
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
       },
       {
-        "allValue": null,
         "current": {
           "selected": false,
-          "text": "52.5150949",
-          "value": "52.5150949"
+          "text": "52.8720124",
+          "value": "52.8720124"
         },
-        "datasource": "tst_icarus",
+        "datasource": {
+          "type": "mysql",
+          "uid": "000000005"
+        },
         "definition": "SELECT max(lat) FROM systems WHERE sid IN ($Systems)",
-        "description": null,
-        "error": null,
         "hide": 2,
         "includeAll": false,
-        "label": null,
         "multi": false,
         "name": "lat",
         "options": [],
@@ -2599,10 +2635,32 @@
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "325",
+          "value": "325"
+        },
+        "datasource": {
+          "type": "mysql",
+          "uid": "000000005"
+        },
+        "definition": "SELECT customer_id FROM `customers_predictions` where prediction_id=$Pid group by customer_id ",
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "cid",
+        "options": [],
+        "query": "SELECT customer_id FROM `customers_predictions` where prediction_id=$Pid group by customer_id ",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
       }
     ]
   },
@@ -2638,5 +2696,6 @@
   "timezone": "",
   "title": "Station forecasts",
   "uid": null,
-  "version": 239
+  "version": 0,
+  "weekStart": ""
 }

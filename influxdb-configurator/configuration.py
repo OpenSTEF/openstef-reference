@@ -40,9 +40,11 @@ class AppSettings(BaseSettings):
     mysql_username: str = Field("root", description="MySQL username.")
     mysql_password: str = Field("root", description="MySQL password.")
 
-    influxdb_host: str = Field("influxdb", description="InfluxDB host.")
+    influxdb_host: str = Field("http://influxdb", description="InfluxDB host.")
     influxdb_port: str = Field("8086", description="InfluxDB port.")
-    influxdb_username: str = Field("admin", description="InfluxDB username.")
-    influxdb_password: str = Field("admin", description="InfluxDB password.")
+    influxdb_username: str = Field("myusername", description="InfluxDB username.")
+    influxdb_password: str = Field("passwordpasswordpassword", description="InfluxDB password.")
+    influxdb_token: str = Field("mytoken", description="InfluxDB admin token.")
+    influx_organization: str = Field("myorg", description="InfluxDB organization.")
 
     proxies: Union[dict[str, str], None] = None
