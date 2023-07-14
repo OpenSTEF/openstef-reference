@@ -46,6 +46,11 @@ To view the dash board navigate to the dashboard: Dashboards > Station forecasts
 Open on http://localhost:8080
 Log in using username `root` and password `root`
 
+## Influx UI
+
+Open on http://localhost:8086
+Log in using username `myusername` and password `passwordpasswordpassword`
+
 ## Nginx
 
 Open on http://localhost:8090
