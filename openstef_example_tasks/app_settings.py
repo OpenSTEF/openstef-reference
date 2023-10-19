@@ -55,7 +55,10 @@ class AppSettings(BaseSettings):
     mysql_password: str = Field(
         "root", description="MySQL password."
     )
-
+    
+    known_zero_flatliners: list = Field(
+        [], description="List of pids with known zero flatflines."
+    )
     influxdb_host: str = Field("http://localhost", description="InfluxDB host.")
     influxdb_port: str = Field("8086", description="InfluxDB port.")
     influxdb_username: str = Field("admin", description="InfluxDB username."
