@@ -32,7 +32,7 @@ INSERT INTO `NameToLatLon` (`regionInput`, `lon`, `lat`) VALUES
 ('Nijmegen', '5.837', '51.813'),
 ('Deelen', '5.894', '52.067');
 
-INSERT INTO `weatherforecastlocations` (`created`, `input_city`, `lat`, `lon`, `country`, `active`) VALUES (CURRENT_TIMESTAMP, 'Deelen', '52.067', '5.894', 'NL', '1'),(CURRENT_TIMESTAMP, 'Nijmegen', '5.837', '51.813', 'NL', '1'),(CURRENT_TIMESTAMP, 'Leeuwarden', '5.800', '53.201','NL', '1');
+INSERT INTO `weatherforecastlocations` (`created`, `input_city`, `lat`, `lon`, `country`, `active`) VALUES (CURRENT_TIMESTAMP, 'Deelen', '52.067', '5.894', 'NL', '1'),(CURRENT_TIMESTAMP, 'Nijmegen', '51.813', '5.837', 'NL', '1'),(CURRENT_TIMESTAMP, 'Leeuwarden', '53.201', '5.800','NL', '1');
 
 INSERT INTO `customers_predictions` (`customer_id`, `prediction_id`) VALUES
 (316, 321),
