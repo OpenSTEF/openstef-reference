@@ -1,7 +1,17 @@
 
 # Openstef-reference
 
-Reference implementation of the **OpenSTEF** stack. It includes all key functionality, e.g. the forecast engine, data storage and -models, the expert user dashboard!
+Reference implementation of the **[OpenSTEF]**(https://github.com/OpenSTEF) stack. It includes all key functionality, e.g. the forecast engine, data storage and -models, the expert user dashboard!
+
+## Table of contents 
+- (Installation)[#installation]
+- (Usage)[#Usage]
+- (Tips and Tricks)[#tips-and-tricks]
+- (License)[#licence]
+- (Licenses third-party libraries)[#licenses-third-party-libraries]
+- (Contributing)[#contributing]
+- (Contact)[#contact]
+
 ![screenshot](https://user-images.githubusercontent.com/60883372/146760483-29af3ac7-62af-4f13-98c7-982a79c517d1.jpg)
 Screenshot of the operational dashboard showing the key functionality of OpenSTEF. 
 Dashboard documentation can be found [here](https://github.com/OpenSTEF/.github/blob/main/profile/README.md).
@@ -9,7 +19,7 @@ Dashboard documentation can be found [here](https://github.com/OpenSTEF/.github/
 
 ## Prerequisites
 
-You will need to install both Docker and Docker Compose.
+Both Docker and Docker compose have to be installed. It is recommended to follow the instruction of the corresponding page:
 
 ### Install Docker
 
@@ -89,14 +99,14 @@ Docker will try using previous volumes on runs. But sometimes you want to start 
 $ docker-compose up --renew-anon-volumes
 ```
 
-## License
+# License
 This project is licensed under the Mozilla Public License, version 2.0 - see LICENSE for details.
 
-## Licenses third-party libraries
+# Licenses third-party libraries
 This project includes third-party libraries, which are licensed under their own respective Open-Source licenses. SPDX-License-Identifier headers are used to show which license is applicable. The concerning license files can be found in the LICENSES directory.
 
 
-## Contributing
+# Contributing
 Please read [CODE_OF_CONDUCT.md](https://github.com/OpenSTEF/.github/blob/main/CODE_OF_CONDUCT.md), [CONTRIBUTING.md](https://github.com/OpenSTEF/.github/blob/main/CONTRIBUTING.md) and [PROJECT_GOVERNANACE.md](https://github.com/OpenSTEF/.github/blob/main/PROJECT_GOVERNANCE.md) for details on the process for submitting pull requests to us.
 
 ## Contact
