@@ -1,20 +1,18 @@
 
 # Openstef-reference
 
-Reference implementation of the **[OpenSTEF]**(https://github.com/OpenSTEF) stack. It includes all key functionality, e.g. the forecast engine, data storage and -models, the expert user dashboard!
+Reference implementation of the [OpenSTEF](https://github.com/OpenSTEF) stack. It includes all key functionality, e.g. the forecast engine, data storage and -models, the expert user dashboard!
 
 ## Table of contents 
-- (Installation)[#installation]
-- (Usage)[#Usage]
-- (Tips and Tricks)[#tips-and-tricks]
-- (License)[#licence]
-- (Licenses third-party libraries)[#licenses-third-party-libraries]
-- (Contributing)[#contributing]
-- (Contact)[#contact]
+- [Installation](#installation)
+- [Usage](#usage)
+- [Tips and Tricks](#tips-and-tricks)
+- [License](#license)
+- [Licenses third-party libraries](#licenses-third-party-libraries)
+- [Contributing](#contributing)
+- [Contact](#contact)
 
-![screenshot](https://user-images.githubusercontent.com/60883372/146760483-29af3ac7-62af-4f13-98c7-982a79c517d1.jpg)
-Screenshot of the operational dashboard showing the key functionality of OpenSTEF. 
-Dashboard documentation can be found [here](https://github.com/OpenSTEF/.github/blob/main/profile/README.md).
+
 # Installation
 
 ## Prerequisites
@@ -50,6 +48,10 @@ Set the mysql pasword (`root`) from withing the dashboard. Do this via Configura
 Set the influx token pasword (`mytoken`) from withing the dashboard. Do this via Configuration > DataSources >  InfluxDB-V2 > token.
 
 To view the dash board navigate to the dashboard: Dashboards > Station forecasts.
+
+![screenshot](https://user-images.githubusercontent.com/60883372/146760483-29af3ac7-62af-4f13-98c7-982a79c517d1.jpg)
+Screenshot of the operational dashboard showing the key functionality of OpenSTEF. 
+Dashboard documentation can be found [here](https://github.com/OpenSTEF/.github/blob/main/profile/README.md).
 
 ## PhpMyAdmin
 
