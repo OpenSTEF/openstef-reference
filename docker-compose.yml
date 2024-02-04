@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   influxdb:
-    image: influxdb:2.7.1-alpine
+    image: influxdb:2.7.5-alpine
     env_file:
       - influxv2.env
     volumes:
@@ -10,7 +10,7 @@ services:
     ports:
       - "8086:8086"
   mysql:
-    image: mysql:5.7
+    image: mysql:8.3
     container_name: openstef-mysql
     volumes:
       - ./mysql/volumes/initdb:/docker-entrypoint-initdb.d
