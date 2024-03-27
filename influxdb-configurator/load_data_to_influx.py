@@ -1,9 +1,12 @@
 from datetime import datetime, timedelta
 from pathlib import Path
+import re
 import pandas as pd
+import numpy as np
 import math
 
 from openstef_dbc.data_interface import _DataInterface
+from openstef_dbc.database import DataBase
 from configuration import AppSettings
 from mock_inlfux_db_admin import MockInfluxDBAdmin
 
@@ -16,11 +19,12 @@ extra_info_customers = {
     459: "Location_A",
 }
 
+
 def round_dt(dt, delta=timedelta(minutes=15)):
     return datetime.min + math.floor((dt - datetime.min) / delta) * delta
 
-def load_load_data() -> bool:
 
+def load_load_data() -> bool:
     load_data = pd.read_csv(Path("data/realised_power.csv"), skipinitialspace=True)
 
     # print(load_data.columns)
@@ -50,7 +54,6 @@ def load_load_data() -> bool:
 
 
 def load_t_ahead_data(delta):
-
     data = pd.read_csv(
         Path("data/wide_forecast_tAheads_prediction.csv"), parse_dates=True, index_col=0
     )
@@ -82,6 +85,44 @@ def load_t_ahead_data(delta):
 
     melted.index = melted.index.shift(delta, freq=1)
 
+    # Cast columns to correct type, as influx is extremely picky
+    casting_dict = {
+        "prediction": np.float64,
+        "stdev": np.float64,
+        "pid": np.int64,
+        "type": str,
+        "customer": str,
+        "created": str,
+        "algtype": str,
+        "description": str,
+        "forecast_solar": np.float64,
+        "forecast_wind_on_shore": np.float64,
+        "forecast_other": np.float64,
+        "forecast": np.float64,
+        "quality": str,
+        "tAhead": np.float64,
+    }
+    # Generate casting dict for available quantiles
+    p = re.compile(r"quantile_P\d\d")
+    quantile_columns = [s for s in field_columns if p.match(s)]
+    casting_dict.update(dict.fromkeys(quantile_columns, np.float64))
+
+    # Check if we have all columns and not some extra
+    casting_dict_columns = list(casting_dict.keys())
+    for k in casting_dict_columns:
+        # Remove any casting dict entries that are not in the dataframe
+        if k not in melted.columns:
+            casting_dict.pop(k, None)
+
+    if set(casting_dict.keys()) != set(
+        melted.columns.to_list()
+    ):  # Check if we have a type description for every column, if not raise an error
+        raise ValueError(
+            "Got unexpected columns, unable to cast these columns in the correct datatype."
+        )
+
+    melted = melted.astype(casting_dict)
+
     result = _DataInterface.get_instance().exec_influx_write(
         melted.copy().dropna(),
         database="forecast_latest",
@@ -104,7 +145,6 @@ def load_weather_data(delta):
     data.index = data.index.shift(delta, freq=1)
 
     for location in locations:
-
         data["input_city"] = location
         data["source"] = "harm_arome"
 
