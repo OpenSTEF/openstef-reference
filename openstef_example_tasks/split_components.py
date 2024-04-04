@@ -1,11 +1,18 @@
 """"""
-from openstef.tasks import train_model as task
+from openstef.tasks import split_forecast as task
 from openstef_dbc.database import DataBase
 from openstef_dbc.log import logging
 
 from app_settings import AppSettings
 
 Settings = AppSettings()
+
+extra_info_customers = {
+    317: "Location_A",
+    313: "Location_C",
+    321: "Location_B",
+    459: "Location_A",
+}
 
 
 def main():

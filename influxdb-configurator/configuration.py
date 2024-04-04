@@ -1,6 +1,7 @@
 from typing import Union
 
-from pydantic import BaseSettings, Field
+from pydantic import Field
+from pydantic_settings import BaseSettings
 
 
 class AppSettings(BaseSettings):
@@ -43,7 +44,9 @@ class AppSettings(BaseSettings):
     influxdb_host: str = Field("http://influxdb", description="InfluxDB host.")
     influxdb_port: str = Field("8086", description="InfluxDB port.")
     influxdb_username: str = Field("myusername", description="InfluxDB username.")
-    influxdb_password: str = Field("passwordpasswordpassword", description="InfluxDB password.")
+    influxdb_password: str = Field(
+        "passwordpasswordpassword", description="InfluxDB password."
+    )
     influxdb_token: str = Field("mytoken", description="InfluxDB admin token.")
     influx_organization: str = Field("myorg", description="InfluxDB organization.")
 

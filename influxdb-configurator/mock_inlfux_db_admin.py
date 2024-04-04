@@ -1,6 +1,6 @@
 import requests
 
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 
 BUCKETS = ["realised/autogen", "forecast_latest/autogen"]
 

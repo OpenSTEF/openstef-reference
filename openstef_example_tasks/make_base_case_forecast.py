@@ -7,6 +7,7 @@ from app_settings import AppSettings
 
 Settings = AppSettings()
 
+
 def main():
     # Initialize logging
     logging.configure_logging(loglevel=Settings.loglevel, runtime_env=Settings.env)
