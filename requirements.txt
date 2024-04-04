@@ -2,3 +2,4 @@ openstef==3.4.21
 openstef_dbc==3.7.6
 msgpack==1.0.4
 pydantic-settings==2.2.1
+SQLAlchemy==1.4.52
