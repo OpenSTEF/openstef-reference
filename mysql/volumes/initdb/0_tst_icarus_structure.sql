@@ -144,6 +144,7 @@ CREATE TABLE `predictions` (
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `active` int(11) NOT NULL DEFAULT '1' COMMENT '0 = off\n1 = on\n2 = automatic (between from en to)',
   `horizon_minutes` int(7) NOT NULL DEFAULT '2880',
+  `train_horizons_minutes` json NOT NULL,
   `resolution_minutes` int(7) NOT NULL DEFAULT '15',
   `train_components` bit(1) NOT NULL DEFAULT b'0',
   `ean` varchar(18) DEFAULT NULL

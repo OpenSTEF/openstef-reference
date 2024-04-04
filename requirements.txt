@@ -1,3 +1,4 @@
-openstef==3.3.3
-openstef_dbc==3.6.15
+openstef==3.4.21
+openstef_dbc==3.7.6
 msgpack==1.0.4
+pydantic-settings==2.2.1

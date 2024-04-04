@@ -4,11 +4,11 @@ INSERT INTO `customersApiKeys` (`id`, `cid`, `name`, `apiKey`) VALUES (103, 316,
 
 INSERT INTO `systemsApiKeys` (`id`, `name`, `apiKey`) VALUES (199, 'Measurements', 'uuid-Measurements');
 
-INSERT INTO `systems` (`sid`, `origin`, `lat`, `lon`, `region`, `timezone`, `brand`, `freq`, `qual`, `lag`, `created`, `autoupdate`, `polarity`, `measurements_customer_api_key_id`) VALUES ('Location_C_System_1', 'ems',53.201, 5.8,  NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, -1, 199), ('Location_C_System_2', 'ems', 53.201,5.8,  NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, -1, 199), ('Location_A_System_1', 'ems',  51.813, 5.837,NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:07', 1, 1, 199), ('Location_A_System_2', 'ems',51.813, 5.837,  NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, 1, 199), ('Location_B_System_1', 'ems',  52.067,5.894, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, -1, 199), ('Location_B_System_2', 'ems',   52.067, 5.894, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:12', 1, -1, 199);
+INSERT INTO `systems` (`sid`, `origin`, `lat`, `lon`, `region`, `timezone`, `brand`, `freq`, `qual`, `lag`, `created`, `autoupdate`, `polarity`, `measurements_customer_api_key_id`) VALUES ('Location_C_System_1', 'ems', 57.681742, 12.021231,  NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, -1, 199), ('Location_C_System_2', 'ems', 57.681742, 12.021231,  NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, -1, 199), ('Location_A_System_1', 'ems',  59.589079, 16.511235,NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:07', 1, 1, 199), ('Location_A_System_2', 'ems',59.589079, 16.511235,  NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, 1, 199), ('Location_B_System_1', 'ems',  59.494761, 15.98829, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:11', 1, -1, 199), ('Location_B_System_2', 'ems',   59.494761, 15.98829, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-22 11:26:12', 1, -1, 199);
 
 INSERT INTO `predictions` (`id`, `name`, `forecast_type`, `model`, `created`, `active`, `horizon_minutes`, `resolution_minutes`, `train_components`,
-`ean`) VALUES
-(459, 'Location_A', 'demand', 'xgb_quantile', '2019-05-16 14:55:34', 1, 2880, 15, b'1', '000000000000000002'), (321, 'Location_B', 'demand', 'xgb', '2019-05-16 14:56:15', 1, 2880, 15, b'1', '000000000000000001'), (317, 'Location_A', 'demand', 'xgb', '2019-05-16 14:55:34', 1, 2880, 15, b'1', '000000000000000002'), (313, 'Location_C', 'demand', 'xgb', '2019-05-16 14:53:38', 1, 2880, 15, b'1', '000000000000000003');
+`ean`, `train_horizons_minutes`) VALUES
+(459, 'Location_A', 'demand', 'xgb_quantile', '2019-05-16 14:55:34', 1, 2880, 15, b'1', '000000000000000002', '[1440,2880]'), (321, 'Location_B', 'demand', 'xgb', '2019-05-16 14:56:15', 1, 2880, 15, b'1', '000000000000000001', '[1440,2880]'), (317, 'Location_A', 'demand', 'xgb', '2019-05-16 14:55:34', 1, 2880, 15, b'1', '000000000000000002', '[1440,2880]'), (313, 'Location_C', 'demand', 'xgb', '2019-05-16 14:53:38', 1, 2880, 15, b'1', '000000000000000003', '[1440,2880]');
 
 INSERT INTO `quantile_sets` (`id`,`quantiles`,`description`) VALUES (1, '[0.05,0.1,0.3,0.5,0.7,0.9,0.95]', 'Default quantile set');
 
@@ -32,7 +32,7 @@ INSERT INTO `NameToLatLon` (`regionInput`, `lon`, `lat`) VALUES
 ('Nijmegen', '5.837', '51.813'),
 ('Deelen', '5.894', '52.067');
 
-INSERT INTO `weatherforecastlocations` (`created`, `input_city`, `lat`, `lon`, `country`, `active`) VALUES (CURRENT_TIMESTAMP, 'Deelen', '52.067', '5.894', 'NL', '1'),(CURRENT_TIMESTAMP, 'Nijmegen', '51.813', '5.837', 'NL', '1'),(CURRENT_TIMESTAMP, 'Leeuwarden', '53.201', '5.800','NL', '1');
+INSERT INTO `weatherforecastlocations` (`created`, `input_city`, `lat`, `lon`, `country`, `active`) VALUES (CURRENT_TIMESTAMP, 'Deelen', '59.494761', '15.98829', 'NL', '1'),(CURRENT_TIMESTAMP, 'Nijmegen', '59.589079', '16.511235', 'NL', '1'),(CURRENT_TIMESTAMP, 'Leeuwarden', '57.681742', '12.021231','NL', '1');
 
 INSERT INTO `customers_predictions` (`customer_id`, `prediction_id`) VALUES
 (316, 321),

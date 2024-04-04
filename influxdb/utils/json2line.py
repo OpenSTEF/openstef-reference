@@ -94,7 +94,6 @@ def get_tag_names(serie):
 def determine_columns(column_names, tag_names, field_names):
     colums = []
     for i, col_name in enumerate(column_names):
-
         if col_name == "time":
             colums.append(Column(name=col_name, index=i, type=ColumnType.TIMESTAMP))
             continue
@@ -137,7 +136,6 @@ def parse_single_file(filename):
 
 
 if __name__ == "__main__":
-
     # single file mode
     if len(sys.argv) == 2:
         data_serie, tags_serie, fields_serie = parse_single_file(sys.argv[1])
