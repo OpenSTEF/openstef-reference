@@ -95,7 +95,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `alembic_version` (
   `version_num` varchar(32) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `alembic_version`
@@ -117,7 +117,7 @@ CREATE TABLE `experiments` (
   `lifecycle_stage` varchar(32) DEFAULT NULL,
   `creation_time` bigint(20) DEFAULT NULL,
   `last_update_time` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `experiments`
@@ -139,7 +139,7 @@ CREATE TABLE `experiment_tags` (
   `key` varchar(250) NOT NULL,
   `value` varchar(5000) DEFAULT NULL,
   `experiment_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -154,7 +154,7 @@ CREATE TABLE `latest_metrics` (
   `step` bigint(20) NOT NULL,
   `is_nan` tinyint(1) NOT NULL,
   `run_uuid` varchar(32) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `latest_metrics`
@@ -199,7 +199,7 @@ CREATE TABLE `metrics` (
   `run_uuid` varchar(32) NOT NULL,
   `step` bigint(20) NOT NULL DEFAULT '0',
   `is_nan` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `metrics`
@@ -250,7 +250,7 @@ CREATE TABLE `model_versions` (
   `status` varchar(20) DEFAULT NULL,
   `status_message` varchar(500) DEFAULT NULL,
   `run_link` varchar(500) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -263,7 +263,7 @@ CREATE TABLE `model_version_tags` (
   `value` varchar(5000) DEFAULT NULL,
   `name` varchar(256) NOT NULL,
   `version` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -275,7 +275,7 @@ CREATE TABLE `params` (
   `key` varchar(250) NOT NULL,
   `value` varchar(500) NOT NULL,
   `run_uuid` varchar(32) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `params`
@@ -381,7 +381,7 @@ CREATE TABLE `registered_models` (
   `creation_time` bigint(20) DEFAULT NULL,
   `last_updated_time` bigint(20) DEFAULT NULL,
   `description` varchar(5000) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -393,7 +393,7 @@ CREATE TABLE `registered_model_tags` (
   `key` varchar(250) NOT NULL,
   `value` varchar(5000) DEFAULT NULL,
   `name` varchar(256) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -416,7 +416,7 @@ CREATE TABLE `runs` (
   `artifact_uri` varchar(200) DEFAULT NULL,
   `experiment_id` int(11) DEFAULT NULL,
   `deleted_time` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `runs`
@@ -437,7 +437,7 @@ CREATE TABLE `tags` (
   `key` varchar(250) NOT NULL,
   `value` varchar(5000) DEFAULT NULL,
   `run_uuid` varchar(32) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tags`
