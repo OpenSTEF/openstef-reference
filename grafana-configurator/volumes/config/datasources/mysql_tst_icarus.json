@@ -1,5 +1,5 @@
 {
-  "id": 5,
+  "id": 3,
   "uid": "000000005",
   "orgId": 1,
   "name": "tst_icarus",
@@ -8,11 +8,19 @@
   "typeLogoUrl": "public/app/plugins/datasource/mysql/img/mysql_logo.svg",
   "access": "proxy",
   "url": "mysql:3306",
-  "password": "root",
   "user": "root",
-  "database": "tst_icarus",
+  "database": "",
   "basicAuth": false,
   "isDefault": false,
-  "jsonData": null,
+  "secureJsonData": {
+    "password": "root"
+  },
+  "jsonData": {
+    "connMaxLifetime": 14400,
+    "database": "tst_icarus",
+    "maxIdleConns": 100,
+    "maxIdleConnsAuto": true,
+    "maxOpenConns": 100
+  },
   "readOnly": false
 }

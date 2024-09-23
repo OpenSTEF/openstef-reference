@@ -55,11 +55,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "Power [MW]",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -68,6 +70,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -327,7 +330,6 @@
       },
       "id": 47,
       "interval": "15m",
-      "links": [],
       "options": {
         "legend": {
           "calcs": [],
@@ -456,13 +458,13 @@
         "y": 0
       },
       "id": 59,
-      "links": [],
       "maxDataPoints": 100,
       "options": {
         "colorMode": "none",
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "max"
@@ -470,10 +472,12 @@
           "fields": "/^shifted created$/",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
           "datasource": {
@@ -564,7 +568,6 @@
         "y": 0
       },
       "id": 86,
-      "links": [],
       "options": {
         "code": {
           "language": "plaintext",
@@ -574,7 +577,7 @@
         "content": "<div class=\"mapouter\">\n  <div class=\"gmap_canvas\">\n    <iframe width=\"600\" height=\"275\" id=\"gmap_canvas\" src=\"https://maps.google.com/maps?q=$lat%20$lon&t=&z=9&ie=UTF8&iwloc=&output=embed\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>\n  </div>\n  <style>\n    .mapouter {\n      position: relative;\n      text-align: right;\n      height: 300px;\n      width: 600px;\n    }\n    .gmap_canvas {\n      overflow: hidden;\n      background: none !important;\n      height: 300px;\n      width: 600px;\n    }\n  </style>\n</div>",
         "mode": "html"
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "11.2.0",
       "repeatDirection": "v",
       "targets": [
         {
@@ -634,13 +637,13 @@
         "y": 2
       },
       "id": 22,
-      "links": [],
       "maxDataPoints": 100,
       "options": {
         "colorMode": "none",
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "max"
@@ -648,10 +651,12 @@
           "fields": "/^Time$/",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "11.2.0",
       "repeat": "Predictions",
       "repeatDirection": "v",
       "targets": [
@@ -762,13 +767,13 @@
         "y": 4
       },
       "id": 20,
-      "links": [],
       "maxDataPoints": 100,
       "options": {
         "colorMode": "none",
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "max"
@@ -776,10 +781,12 @@
           "fields": "/^created\\*1000$/",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "11.2.0",
       "repeat": "Predictions",
       "repeatDirection": "v",
       "targets": [
@@ -904,13 +911,13 @@
         "y": 6
       },
       "id": 100,
-      "links": [],
       "maxDataPoints": 100,
       "options": {
         "colorMode": "none",
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "uniqueValues"
@@ -918,10 +925,12 @@
           "fields": "/^_value$/",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "11.2.0",
       "repeatDirection": "v",
       "targets": [
         {
@@ -988,11 +997,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "Power [MW]",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -1001,6 +1012,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -1325,7 +1337,6 @@
       },
       "id": 108,
       "interval": "15m",
-      "links": [],
       "options": {
         "legend": {
           "calcs": [],
@@ -1436,13 +1447,13 @@
         "y": 8
       },
       "id": 105,
-      "links": [],
       "maxDataPoints": 100,
       "options": {
         "colorMode": "none",
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "first"
@@ -1450,10 +1461,12 @@
           "fields": "/^ean$/",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
           "datasource": {
@@ -1509,7 +1522,6 @@
         "y": 8
       },
       "id": 12,
-      "links": [],
       "options": {
         "code": {
           "language": "plaintext",
@@ -1519,7 +1531,7 @@
         "content": "<iframe width=\"100%\" height=\"270\" id=\"gmap_canvas\" src=\"http://localhost:8090/icarus/visuals/trained_models/$Pid/weight_plot.html\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
         "mode": "html"
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "11.2.0",
       "repeat": "Predictions",
       "repeatDirection": "v",
       "targets": [
@@ -1579,13 +1591,13 @@
         "y": 10
       },
       "id": 101,
-      "links": [],
       "maxDataPoints": 100,
       "options": {
         "colorMode": "none",
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -1593,10 +1605,12 @@
           "fields": "/^api_key$/",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "11.2.0",
       "repeatDirection": "v",
       "targets": [
         {
@@ -1636,49 +1650,86 @@
       "type": "stat"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
         "type": "influxdb",
         "uid": "vowSQsa4z"
       },
-      "fill": 1,
-      "fillGradient": 0,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Power [MW]",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 10,
         "w": 4,
         "x": 11,
         "y": 12
       },
-      "hiddenSeries": false,
       "id": 103,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
       },
-      "percentage": false,
       "pluginVersion": "9.5.1",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
       "targets": [
         {
           "datasource": {
@@ -1689,39 +1740,8 @@
           "refId": "A"
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "Split components - $Prediction_name (pid: $Pid)",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:45",
-          "format": "short",
-          "label": "Power [MW]",
-          "logBase": 1,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:46",
-          "format": "short",
-          "label": "",
-          "logBase": 1,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     },
     {
       "datasource": {
@@ -1735,11 +1755,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "Power [MW]",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -1748,6 +1770,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -1911,7 +1934,6 @@
       },
       "id": 28,
       "interval": "15m",
-      "links": [],
       "options": {
         "legend": {
           "calcs": [],
@@ -1983,17 +2005,16 @@
         "y": 16
       },
       "id": 98,
-      "links": [],
       "options": {
         "code": {
           "language": "plaintext",
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<iframe width=\"100%\" height=\"300\" id=\"gmap_canvas\" src=\"https://dashboard.icarus.energy/trained_models/$Pid/Predictor47.0.html\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
+        "content": "<iframe width=\"100%\" height=\"300\" id=\"gmap_canvas\" src=\"http://localhost:8090/trained_models/$Pid/Predictor47.0.html\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
         "mode": "html"
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "11.2.0",
       "repeatDirection": "v",
       "targets": [
         {
@@ -2019,11 +2040,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "Power [MW]",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -2032,6 +2055,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -2053,7 +2077,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2254,7 +2279,6 @@
       },
       "id": 107,
       "interval": "15m",
-      "links": [],
       "options": {
         "legend": {
           "calcs": [],
@@ -2355,17 +2379,16 @@
         "y": 24
       },
       "id": 97,
-      "links": [],
       "options": {
         "code": {
           "language": "plaintext",
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<iframe width=\"100%\" height=\"300\" id=\"gmap_canvas\" src=\"https://dashboard.icarus.energy/trained_models/$Pid/Predictor0.25.html\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
+        "content": "<iframe width=\"100%\" height=\"300\" id=\"gmap_canvas\" src=\"http://localhost:8090/trained_models/$Pid/Predictor0.25.html\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
         "mode": "html"
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "11.2.0",
       "repeatDirection": "v",
       "targets": [
         {
@@ -2382,16 +2405,15 @@
   ],
   "refresh": "",
   "revision": 1,
-  "schemaVersion": 38,
-  "style": "dark",
+  "schemaVersion": 39,
   "tags": [],
   "templating": {
     "list": [
       {
         "current": {
           "selected": false,
-          "text": "Wolvega",
-          "value": "Wolvega"
+          "text": "Location_C",
+          "value": "Location_C"
         },
         "datasource": {
           "type": "mysql",
@@ -2417,8 +2439,8 @@
       {
         "current": {
           "selected": false,
-          "text": "330",
-          "value": "330"
+          "text": "313",
+          "value": "313"
         },
         "datasource": {
           "type": "mysql",
@@ -2499,7 +2521,7 @@
       },
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "66",
           "value": "66"
         },
@@ -2532,9 +2554,10 @@
       },
       {
         "current": {
+          "isNone": true,
           "selected": false,
-          "text": "24.0",
-          "value": "24.0"
+          "text": "None",
+          "value": ""
         },
         "datasource": {
           "type": "influxdb",
@@ -2590,8 +2613,8 @@
       {
         "current": {
           "selected": false,
-          "text": "5.9722174",
-          "value": "5.9722174"
+          "text": "12.021231",
+          "value": "12.021231"
         },
         "datasource": {
           "type": "mysql",
@@ -2616,8 +2639,8 @@
       {
         "current": {
           "selected": false,
-          "text": "52.8720124",
-          "value": "52.8720124"
+          "text": "57.681742",
+          "value": "57.681742"
         },
         "datasource": {
           "type": "mysql",
@@ -2642,8 +2665,8 @@
       {
         "current": {
           "selected": false,
-          "text": "325",
-          "value": "325"
+          "text": "307",
+          "value": "307"
         },
         "datasource": {
           "type": "mysql",

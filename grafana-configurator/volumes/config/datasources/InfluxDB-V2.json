@@ -1,5 +1,5 @@
 {
-  "id": 22,
+  "id": 1,
   "uid": "vowSQsa4z",
   "orgId": 1,
   "name": "InfluxDB-V2",
@@ -12,6 +12,9 @@
   "database": "",
   "basicAuth": false,
   "isDefault": false,
+  "secureJsonData": {
+     "token": "mytoken"
+  },
   "jsonData": {
     "defaultBucket": "",
     "httpMode": "POST",

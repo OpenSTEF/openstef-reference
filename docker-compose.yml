@@ -33,7 +33,7 @@ services:
     environment:
       GF_PANELS_DISABLE_SANITIZE_HTML: "true"
   grafana-configurator:
-    image: alpine:3.7
+    image: alpine:3.20.3
     container_name: openstef-grafana-configurator
     depends_on:
       - "grafana"
