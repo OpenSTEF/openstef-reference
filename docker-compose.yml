@@ -26,7 +26,7 @@ services:
     ports:
       - 8080:80
   grafana:
-    image: grafana/grafana:9.3.4
+    image: grafana/grafana:11.2.0-ubuntu
     container_name: openstef-grafana
     ports:
       - 3000:3000
