@@ -26,14 +26,14 @@ services:
     ports:
       - 8080:80
   grafana:
-    image: grafana/grafana:9.3.4
+    image: grafana/grafana:11.2.0-ubuntu
     container_name: openstef-grafana
     ports:
       - 3000:3000
     environment:
       GF_PANELS_DISABLE_SANITIZE_HTML: "true"
   grafana-configurator:
-    image: alpine:3.7
+    image: alpine:3.20.3
     container_name: openstef-grafana-configurator
     depends_on:
       - "grafana"

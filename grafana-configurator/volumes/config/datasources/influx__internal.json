@@ -1,5 +1,5 @@
 {
-  "id": 9,
+  "id": 2,
   "uid": "000000009",
   "orgId": 1,
   "name": "_internal",
@@ -8,7 +8,6 @@
   "typeLogoUrl": "public/app/plugins/datasource/influxdb/img/influxdb_logo.svg",
   "access": "proxy",
   "url": "http://influxdb:8086",
-  "password": "admin",
   "user": "admin",
   "database": "_internal",
   "basicAuth": true,
