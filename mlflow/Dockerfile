@@ -1,4 +1,4 @@
-FROM python:3.10-slim
+FROM python:3.13-slim
 # Build dependencies
 RUN apt-get update -y && apt-get install -y --no-install-recommends build-essential libpq-dev
 
