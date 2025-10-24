@@ -26,4 +26,4 @@ done
 
 export GRAFANA_URL=http://${GRAFANA_USER}:${GRAFANA_PASSWORD}@grafana:3000
 
-grafana-import  -i ${BASEDIR}/dashboards/station_forecasts.json
+grafana-import import -i ${BASEDIR}/dashboards/station_forecasts.json
