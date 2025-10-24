@@ -35,11 +35,11 @@ class AppSettings(BaseSettings):
     api_admin_username: str = Field("username", description="API admin username.")
     api_admin_password: str = Field("admin", description="API admin password.")
 
-    mysql_host: str = Field("localhost", description="MySQL host.")
-    mysql_port: str = Field("3307", description="MySQL port.")
-    mysql_database_name: str = Field("tst_icarus", description="MySQL database name.")
-    mysql_username: str = Field("root", description="MySQL username.")
-    mysql_password: str = Field("root", description="MySQL password.")
+    sql_db_host: str = Field("localhost", description="MySQL host.")
+    sql_db_port: str = Field("3307", description="MySQL port.")
+    sql_db_database_name: str = Field("tst_icarus", description="MySQL database name.")
+    sql_db_username: str = Field("root", description="MySQL username.")
+    sql_db_password: str = Field("root", description="MySQL password.")
 
     influxdb_host: str = Field("http://influxdb", description="InfluxDB host.")
     influxdb_port: str = Field("8086", description="InfluxDB port.")
