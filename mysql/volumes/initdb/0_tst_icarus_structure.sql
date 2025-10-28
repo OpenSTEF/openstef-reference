@@ -147,7 +147,8 @@ CREATE TABLE `predictions` (
   `train_horizons_minutes` json NOT NULL,
   `resolution_minutes` int(7) NOT NULL DEFAULT '15',
   `train_components` bit(1) NOT NULL DEFAULT b'0',
-  `ean` varchar(18) DEFAULT NULL
+  `ean` varchar(18) DEFAULT NULL,
+  `electricity_bidding_zone` varchar(10) DEFAULT 'NL'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
