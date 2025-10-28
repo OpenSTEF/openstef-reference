@@ -8,7 +8,7 @@ INSERT INTO `systems` (`sid`, `origin`, `lat`, `lon`, `region`, `timezone`, `bra
 
 INSERT INTO `predictions` (`id`, `name`, `forecast_type`, `model`, `created`, `active`, `horizon_minutes`, `resolution_minutes`, `train_components`,
 `ean`, `train_horizons_minutes`) VALUES
-(459, 'Location_A', 'demand', 'xgb_quantile', '2019-05-16 14:55:34', 1, 2880, 15, b'1', '000000000000000002', '[1440,2880]'), (321, 'Location_B', 'demand', 'xgb', '2019-05-16 14:56:15', 1, 2880, 15, b'1', '000000000000000001', '[1440,2880]'), (317, 'Location_A', 'demand', 'xgb', '2019-05-16 14:55:34', 1, 2880, 15, b'1', '000000000000000002', '[1440,2880]'), (313, 'Location_C', 'demand', 'xgb', '2019-05-16 14:53:38', 1, 2880, 15, b'1', '000000000000000003', '[1440,2880]');
+(459, 'Location_A', 'demand', 'xgb_linear', '2019-05-16 14:55:34', 1, 2880, 15, b'1', '000000000000000002', '[1440,2880]'), (321, 'Location_B', 'demand', 'xgb', '2019-05-16 14:56:15', 1, 2880, 15, b'1', '000000000000000001', '[1440,2880]'), (317, 'Location_A', 'demand', 'xgb', '2019-05-16 14:55:34', 1, 2880, 15, b'1', '000000000000000002', '[1440,2880]'), (313, 'Location_C', 'demand', 'xgb', '2019-05-16 14:53:38', 1, 2880, 15, b'1', '000000000000000003', '[1440,2880]');
 
 INSERT INTO `quantile_sets` (`id`,`quantiles`,`description`) VALUES (1, '[0.05,0.1,0.3,0.5,0.7,0.9,0.95]', 'Default quantile set');
 
@@ -20,7 +20,7 @@ INSERT INTO `genericpowercurves` (`name`, `cut_in`, `cut_off`, `kind`, `manufact
 ('Enercon E101', 3, 25, 'onshore', 'Enercon', 3040270, 3000000, 7.91, 0.76), ('Enercon E126', 3, 25, 'onshore', 'Enercon', 7738960, 7580000, 10.1, 0.561), ('Enercon E82', 3, 25, 'onshore', 'Enercon', 2136280, 2000000, 8.66, 0.681), ('Lagerwey L100', 3, 25, 'onshore', 'Lagerwey', 2260050, 2500000, 8.07, 0.664), ('Neg Micon 48', 3, 25, 'onshore', 'Neg Micon', 760215, 750000, 9.24, 0.615), ('Nordex N100', 3, 25, 'onshore', 'Nordex', 2533490, 2500000, 8.1, 0.8), ('Nordtank NTK600 43', 3, 25, 'onshore', 'Nordtank', 600000, 600000, 9.3, 0.615), ('rescaled_Lagerwey L100', 3, 25, 'onshore', 'Lagerwey', 2.26005, 2.5, 8.07, 0.664), ('Siemens SWT4.0', 3, 25, 'offshore', 'Siemens', 4047380, 4000000, 7.78, 0.825), ('Vestas V112', 3, 25, 'onshore', 'Vestas', 3115990, 3000000, 8.15, 0.807), ('Vestas V90', 3, 25, 'onshore', 'Vestas', 2031320, 2000000, 8.29, 0.667);
 
 
-INSERT INTO `hyper_params` (`id`, `name`, `model`) VALUES (1, 'subsample', 'xgb'), (2, 'min_child_weight', 'xgb'), (3, 'max_depth', 'xgb'), (4, 'gamma', 'xgb'), (5, 'colsample_bytree', 'xgb'), (6, 'silent', 'xgb'), (7, 'objective', 'xgb'), (8, 'eta', 'xgb'), (9, 'featureset_name', 'xgb'), (10, 'training_period_days', 'xgb'), (11, 'subsample', 'xgb_quantile'), (12, 'min_child_weight', 'xgb_quantile'), (13, 'max_depth', 'xgb_quantile'), (14, 'gamma', 'xgb_quantile'), (15, 'colsample_bytree', 'xgb_quantile'), (16, 'silent', 'xgb_quantile'), (17, 'objective', 'xgb_quantile'), (18, 'eta', 'xgb_quantile'), (19, 'featureset_name', 'xgb_quantile'), (20, 'training_period_days', 'xgb_quantile');
+INSERT INTO `hyper_params` (`id`, `name`, `model`) VALUES (1, 'subsample', 'xgb'), (2, 'min_child_weight', 'xgb'), (3, 'max_depth', 'xgb'), (4, 'gamma', 'xgb'), (5, 'colsample_bytree', 'xgb'), (6, 'silent', 'xgb'), (7, 'objective', 'xgb'), (8, 'eta', 'xgb'), (9, 'featureset_name', 'xgb'), (10, 'training_period_days', 'xgb'), (11, 'subsample', 'xgb_linear'), (12, 'min_child_weight', 'xgb_linear'), (13, 'max_depth', 'xgb_linear'), (14, 'gamma', 'xgb_linear'), (15, 'colsample_bytree', 'xgb_linear'), (16, 'silent', 'xgb_linear'), (17, 'objective', 'xgb_linear'), (18, 'eta', 'xgb_linear'), (19, 'featureset_name', 'xgb_linear'), (20, 'training_period_days', 'xgb_linear');
 
 
 
@@ -467,7 +467,7 @@ INSERT INTO `tags` (`key`, `value`, `run_uuid`) VALUES
 ('mlflow.user', 'janmaarten', '0d7f0c76684a4cd781a68fc55ddd5f7e'),
 ('mlflow.user', 'janmaarten', '67fa42898635471e8c789c78180ab7a8'),
 ('mlflow.user', 'janmaarten', 'bf4efe2b515141a6bf7b3be59aaa8e4c'),
-('model_type', 'xgb_quantile', '0d7f0c76684a4cd781a68fc55ddd5f7e'),
+('model_type', 'xgb_linear', '0d7f0c76684a4cd781a68fc55ddd5f7e'),
 ('model_type', 'xgb', '67fa42898635471e8c789c78180ab7a8'),
 ('model_type', 'xgb', 'bf4efe2b515141a6bf7b3be59aaa8e4c'),
 ('phase', 'training', '0d7f0c76684a4cd781a68fc55ddd5f7e'),
