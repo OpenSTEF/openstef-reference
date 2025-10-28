@@ -352,7 +352,7 @@
             "uid": "vowSQsa4z"
           },
           "hide": false,
-          "query": "from(bucket: \"forecast_latest/autogen\")\r\n  |> range(start: now(), stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"prediction\")\r\n  |> filter(fn: (r) => r.pid == ${Pid:json})\r\n  |> filter(fn: (r) => r[\"_field\"] =~ /quantile_P/ or r[\"_field\"] == \"forecast\")\r\n  |> aggregateWindow(every: 15m, fn: mean, createEmpty: true)\r\n  |> keep(columns: [\"_time\", \"_field\", \"_value\"])",
+          "query": "from(bucket: \"forecast_latest/autogen\")\r\n  |> range(start: now(), stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"prediction\")\r\n  |> filter(fn: (r) => r.pid == \"${Pid:json}\")\r\n  |> filter(fn: (r) => r[\"_field\"] =~ /quantile_P/ or r[\"_field\"] == \"forecast\")\r\n  |> aggregateWindow(every: 15m, fn: mean, createEmpty: true)\r\n  |> keep(columns: [\"_time\", \"_field\", \"_value\"])",
           "refId": "Forecasts"
         },
         {
@@ -669,7 +669,7 @@
           "measurement": "prediction",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "\r\nfrom(bucket: \"forecast_latest/autogen\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r._measurement == \"prediction\")\r\n|> filter(fn: (r) => r[\"pid\"] == ${Pid:json})\r\n|> filter(fn: (r) => r._field == \"created\") \r\n|> filter(fn: (r) => r.type != \"est_demand\" and  r.type != \"est_wind\" and  r.type != \"est_pv\")\r\n",
+          "query": "\r\nfrom(bucket: \"forecast_latest/autogen\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r._measurement == \"prediction\")\r\n|> filter(fn: (r) => r[\"pid\"] == \"${Pid:json}\")\r\n|> filter(fn: (r) => r._field == \"created\") \r\n|> filter(fn: (r) => r.type != \"est_demand\" and  r.type != \"est_wind\" and  r.type != \"est_pv\")\r\n",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -812,7 +812,7 @@
           "measurement": "prediction",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "\r\nfrom(bucket: \"forecast_latest/autogen\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r._measurement == \"prediction\")\r\n|> filter(fn: (r) => r[\"pid\"] == ${Pid:json})\r\n|> filter(fn: (r) => r._field == \"created\") \r\n|> filter(fn: (r) => r.type != \"est_demand\" and  r.type != \"est_wind\" and  r.type != \"est_pv\")\r\n|> keep(columns: [\"_value\"])\r\n|> max()\r\n|> yield(name: \"max created\")",
+          "query": "\r\nfrom(bucket: \"forecast_latest/autogen\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r._measurement == \"prediction\")\r\n|> filter(fn: (r) => r[\"pid\"] == \"${Pid:json}\")\r\n|> filter(fn: (r) => r._field == \"created\") \r\n|> filter(fn: (r) => r.type != \"est_demand\" and  r.type != \"est_wind\" and  r.type != \"est_pv\")\r\n|> keep(columns: [\"_value\"])\r\n|> max()\r\n|> yield(name: \"max created\")",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -955,7 +955,7 @@
           "measurement": "prediction",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: \"forecast_latest/autogen\")\r\n|> range(start: 24h, stop: 26h)\r\n|> filter(fn: (r) => r._measurement == \"prediction\")\r\n|> filter(fn: (r) => r[\"pid\"] == ${Pid:json})\r\n|> filter(fn: (r) => r._field == \"quality\")\r\n|> keep(columns: [\"_value\"])",
+          "query": "from(bucket: \"forecast_latest/autogen\")\r\n|> range(start: 24h, stop: 26h)\r\n|> filter(fn: (r) => r._measurement == \"prediction\")\r\n|> filter(fn: (r) => r[\"pid\"] == \"${Pid:json}\")\r\n|> filter(fn: (r) => r._field == \"quality\")\r\n|> keep(columns: [\"_value\"])",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1367,7 +1367,7 @@
             "uid": "vowSQsa4z"
           },
           "hide": false,
-          "query": "from(bucket: \"forecast_latest/autogen\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"prediction_tAheads\")\r\n  |> filter(fn: (r) => r[\"pid\"] == ${Pid:json})\r\n  |> filter(fn: (r) => r[\"_field\"] == \"quantile_P50\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: true)\r\n  |> keep(columns: [\"_time\", \"_field\",\"_value\",\"tAhead\"])",
+          "query": "from(bucket: \"forecast_latest/autogen\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"prediction_tAheads\")\r\n  |> filter(fn: (r) => r[\"pid\"] == \"${Pid:json}\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"quantile_P50\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: true)\r\n  |> keep(columns: [\"_time\", \"_field\",\"_value\",\"tAhead\"])",
           "refId": "Predictions P50 all taheads"
         }
       ],
@@ -1736,7 +1736,7 @@
             "type": "influxdb",
             "uid": "vowSQsa4z"
           },
-          "query": "from(bucket: \"forecast_latest/autogen\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"prediction\")\r\n  |> filter(fn: (r) => r[\"pid\"] == ${Pid:json})\r\n  |> filter(fn: (r) => r[\"_field\"] =~ /forecast/)\r\n  |> yield(name: \"mean\")",
+          "query": "from(bucket: \"forecast_latest/autogen\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"prediction\")\r\n  |> filter(fn: (r) => r[\"pid\"] == \"${Pid:json}\")\r\n  |> filter(fn: (r) => r[\"_field\"] =~ /forecast/)\r\n  |> yield(name: \"mean\")",
           "refId": "A"
         }
       ],
@@ -1965,7 +1965,7 @@
             "uid": "vowSQsa4z"
           },
           "hide": false,
-          "query": "from(bucket: \"forecast_latest/autogen\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"prediction_tAheads\")\r\n  |> filter(fn: (r) => r[\"pid\"] == ${Pid:json})\r\n  |> filter(fn: (r) => r[\"tAhead\"] == ${SpecifcTAhead:json})\r\n  |> filter(fn: (r) => r[\"_field\"] =~ /quantile_P/)\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: true)\r\n  |> keep(columns: [\"_time\", \"_field\", \"_value\"])",
+          "query": "from(bucket: \"forecast_latest/autogen\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"prediction_tAheads\")\r\n  |> filter(fn: (r) => r[\"pid\"] == \"${Pid:json}\")\r\n  |> filter(fn: (r) => r[\"tAhead\"] == ${SpecifcTAhead:json})\r\n  |> filter(fn: (r) => r[\"_field\"] =~ /quantile_P/)\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: true)\r\n  |> keep(columns: [\"_time\", \"_field\", \"_value\"])",
           "refId": "Forecast at specific tAhead"
         }
       ],
@@ -2309,7 +2309,7 @@
             "uid": "vowSQsa4z"
           },
           "hide": false,
-          "query": "forecast = from(bucket: \"forecast_latest/autogen\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"prediction_tAheads\")\r\n  |> filter(fn: (r) => r.pid == ${Pid:json})\r\n  |> filter(fn: (r) => r[\"tAhead\"] == \"${SpecifcTAhead}\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"forecast\" or r[\"_field\"] == \"stdev\")\r\n  |> keep(columns: [\"_time\", \"_field\", \"_value\"])\r\n  |> aggregateWindow(every: 15m, fn: mean, createEmpty: true)\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> keep(columns: [\"_time\", \"forecast\", \"stdev\"]) |> rename(columns: {\"forecast\": \"Forecast\"})\r\n\r\n  forecast",
+          "query": "forecast = from(bucket: \"forecast_latest/autogen\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"prediction_tAheads\")\r\n  |> filter(fn: (r) => r.pid == \"${Pid:json}\")\r\n  |> filter(fn: (r) => r[\"tAhead\"] == \"${SpecifcTAhead}\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"forecast\" or r[\"_field\"] == \"stdev\")\r\n  |> keep(columns: [\"_time\", \"_field\", \"_value\"])\r\n  |> aggregateWindow(every: 15m, fn: mean, createEmpty: true)\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> keep(columns: [\"_time\", \"forecast\", \"stdev\"]) |> rename(columns: {\"forecast\": \"Forecast\"})\r\n\r\n  forecast",
           "refId": "F"
         }
       ],
@@ -2563,14 +2563,14 @@
           "type": "influxdb",
           "uid": "vowSQsa4z"
         },
-        "definition": "from(bucket: \"forecast_latest/autogen\")\r\n|> range(start: v.timeRangeStart)\r\n|> filter(fn: (r) => r._measurement == \"prediction_tAheads\")\r\n|> filter(fn: (r) => r.pid == ${Pid:json})\r\n|> keyValues(keyColumns: [\"tAhead\"])\r\n|> group()\r\n|> keep(columns: [\"tAhead\"])\r\n|> distinct(column: \"tAhead\")",
+        "definition": "from(bucket: \"forecast_latest/autogen\")\r\n|> range(start: v.timeRangeStart)\r\n|> filter(fn: (r) => r._measurement == \"prediction_tAheads\")\r\n|> filter(fn: (r) => r.pid == \"${Pid:json}\")\r\n|> keyValues(keyColumns: [\"tAhead\"])\r\n|> group()\r\n|> keep(columns: [\"tAhead\"])\r\n|> distinct(column: \"tAhead\")",
         "hide": 0,
         "includeAll": false,
         "label": "SpecifcTAhead",
         "multi": false,
         "name": "SpecifcTAhead",
         "options": [],
-        "query": "from(bucket: \"forecast_latest/autogen\")\r\n|> range(start: v.timeRangeStart)\r\n|> filter(fn: (r) => r._measurement == \"prediction_tAheads\")\r\n|> filter(fn: (r) => r.pid == ${Pid:json})\r\n|> keyValues(keyColumns: [\"tAhead\"])\r\n|> group()\r\n|> keep(columns: [\"tAhead\"])\r\n|> distinct(column: \"tAhead\")",
+        "query": "from(bucket: \"forecast_latest/autogen\")\r\n|> range(start: v.timeRangeStart)\r\n|> filter(fn: (r) => r._measurement == \"prediction_tAheads\")\r\n|> filter(fn: (r) => r.pid == \"${Pid:json}\")\r\n|> keyValues(keyColumns: [\"tAhead\"])\r\n|> group()\r\n|> keep(columns: [\"tAhead\"])\r\n|> distinct(column: \"tAhead\")",
         "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
