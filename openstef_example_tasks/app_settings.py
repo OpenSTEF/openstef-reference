@@ -42,19 +42,19 @@ class AppSettings(BaseSettings):
     api_admin_username: str = Field("", description="API admin username.")
     api_admin_password: str = Field("", description="API admin password.")
 
-    mysql_host: str = Field("localhost", description="MySQL host.")
-    mysql_port: str = Field("3306", description="MySQL port.")
-    mysql_database_name: str = Field("tst_icarus", description="MySQL database name.")
-    mysql_username: str = Field("root", description="MySQL username.")
-    mysql_password: str = Field("root", description="MySQL password.")
+    sql_db_host: str = Field("localhost", description="MySQL host.")
+    sql_db_port: str = Field("3306", description="MySQL port.")
+    sql_db_database_name: str = Field("tst_icarus", description="MySQL database name.")
+    sql_db_username: str = Field("root", description="MySQL username.")
+    sql_db_password: str = Field("root", description="MySQL password.")
 
     known_zero_flatliners: list = Field(
         [], description="List of pids with known zero flatflines."
     )
     influxdb_host: str = Field("http://localhost", description="InfluxDB host.")
     influxdb_port: str = Field("8086", description="InfluxDB port.")
-    influxdb_username: str = Field("admin", description="InfluxDB username.")
-    influxdb_password: str = Field("admin", description="InfluxDB password.")
+    influxdb_username: str = Field("myusername", description="InfluxDB username.")
+    influxdb_password: str = Field("passwordpasswordpassword", description="InfluxDB password.")
 
     influx_organization: str = Field("myorg", description="InfluxDB organization.")
     influxdb_token: str = Field("mytoken", description="InfluxDB token.")

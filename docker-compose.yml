@@ -33,10 +33,13 @@ services:
     environment:
       GF_PANELS_DISABLE_SANITIZE_HTML: "true"
   grafana-configurator:
-    image: alpine:3.20.3
+    image: alpine:3.22.1
     container_name: openstef-grafana-configurator
     depends_on:
-      - "grafana"
+      grafana:
+        condition: service_started
+      influx-configurator:
+        condition: service_completed_successfully
     command: ["/opt/grafana-configurator/wait-for", "grafana:3000", "--", "sh", "/opt/grafana-configurator/configurator.sh"]
     volumes:
       - ./grafana-configurator/volumes/config:/opt/grafana-configurator
@@ -46,9 +49,10 @@ services:
   influx-configurator:
     container_name: openstef-influx-configurator
     depends_on:
-      - "influxdb"
+      - influxdb
     build:
       context: ./influxdb-configurator
+    restart: "no"
   nginx:
     image: nginx
     container_name: openstef-nginx
