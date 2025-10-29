@@ -36,7 +36,10 @@ services:
     image: alpine:3.22.1
     container_name: openstef-grafana-configurator
     depends_on:
-      - "grafana"
+      grafana:
+        condition: service_started
+      influx-configurator:
+        condition: service_completed_successfully
     command: ["/opt/grafana-configurator/wait-for", "grafana:3000", "--", "sh", "/opt/grafana-configurator/configurator.sh"]
     volumes:
       - ./grafana-configurator/volumes/config:/opt/grafana-configurator
