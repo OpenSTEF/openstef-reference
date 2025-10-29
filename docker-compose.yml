@@ -46,9 +46,10 @@ services:
   influx-configurator:
     container_name: openstef-influx-configurator
     depends_on:
-      - "influxdb"
+      - influxdb
     build:
       context: ./influxdb-configurator
+    restart: "no"
   nginx:
     image: nginx
     container_name: openstef-nginx
