@@ -83,6 +83,7 @@ def load_t_ahead_data(delta):
     tag_columns = ["pid", "customer", "type", "tAhead"]
     field_columns = [x for x in melted.columns if x not in tag_columns]
 
+    melted.index = pd.to_datetime(melted.index)
     melted.index = melted.index.shift(delta, freq=1)
 
     # Cast columns to correct type, as influx is extremely picky
