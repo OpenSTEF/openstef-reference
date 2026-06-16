@@ -1,3 +1,6 @@
+> \[!NOTE]
+>
+> This repository is archived since it is no longer maintained after the release of OpenSTEF v4
 
 # Openstef-reference
 
