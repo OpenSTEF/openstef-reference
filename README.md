@@ -1,5 +1,7 @@
-
 # Openstef-reference
+
+> [!WARNING]
+> This repository will soon be archived as part of the OpenSTEF V3 deprecation. Please refer to [OpenSTEF V4](https://github.com/OpenSTEF/openstef) for the latest OpenSTEF version which includes example deployments.
 
 Reference implementation of the [OpenSTEF](https://github.com/OpenSTEF) stack. It includes all key functionality, e.g. the forecast engine, data storage and -models, the expert user dashboard!
 
